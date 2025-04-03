@@ -1,0 +1,29 @@
+{% extends "home/template.html" %}
+{% load static %}
+
+{% block title %}Кинотеатры{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'cinemas/css/cinemas.css' %}">
+{% endblock %}
+
+
+{% block main %}
+    <div class="cinemas">
+        {% for cinema in cinemas %}
+            <div class="cinema-card">
+                {% if cinema.image %}
+                    <img src="{{ cinema.image.url }}" alt="{{ cinema.name }}" class="cinema-image" />
+                {% endif %}
+                <h2 class="cinema-title">{{ cinema.name }}</h2>
+                <p class="cinema-genre">Жанр: {{ cinema.rating }}</p>
+                <!-- <p>Залы:</p>
+                <ul>
+                    {% for hall in cinema.halls.all %}
+                        <li>{{ hall.name }}</li>
+                    {% endfor %}
+                </ul> -->
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

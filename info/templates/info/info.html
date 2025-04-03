@@ -1,0 +1,35 @@
+{% extends "home/template.html" %}
+{% load static %}
+
+
+
+{% block title %}Информация{% endblock %}
+
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'info/css/info.css' %}">
+{% endblock %}
+
+{% block main %}
+<section id="about">
+    <h2>О нас</h2>
+    <p>Сеть кинотеатров Cinema Park предлагает зрителям уникальный опыт просмотра фильмов в комфортной обстановке. Мы стремимся предоставить лучшие условия для наших гостей, включая современные технологии и широкий выбор фильмов.</p>
+</section>
+
+<section id="services">
+    <h2>Услуги</h2>
+    <ul>
+        <li>Показ фильмов в формате 2D и 3D</li>
+        <li>VIP-залы с повышенным комфортом</li>
+        <li>Кафе и бары с разнообразным меню</li>
+        <li>Проведение мероприятий и частных показов</li>
+    </ul>
+</section>
+
+<section id="contact">
+    <h2>Контакты</h2>
+    <p>Телефон: +7 (123) 456-78-90</p>
+    <p>Email: info@cinemapark.ru</p>
+    <p>Адрес: г. Череповец, ул. Пионерская, д. 29</p>
+</section>
+{% endblock %}
