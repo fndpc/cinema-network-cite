@@ -3,7 +3,7 @@
 
 
 
-{% block title %}Авторизация{% endblock %}
+{% block title %}Регистрация{% endblock %}
 
 
 {% block styles %}
@@ -16,7 +16,6 @@
     {% csrf_token %}
     {{ form }}
     <input type="submit" value="OK">
-    <a href="{% url 'register' %}" class="register-button">Зарегистрироваться</a>
 </form>
 
 {% endblock %}

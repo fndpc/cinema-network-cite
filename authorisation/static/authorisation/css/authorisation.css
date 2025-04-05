@@ -43,3 +43,24 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #218838; /* Темнее зеленый при наведении */
 }
+
+.register-button {
+    display: inline-block; /* Чтобы кнопка выглядела как кнопка */
+    width: 100%; /* Полная ширина кнопки */
+    padding: 10px; /* Отступы внутри кнопки */
+    background-color: #6c757d; /* Серый цвет кнопки */
+    color: white; /* Цвет текста кнопки */
+    text-align: center; /* Центрирование текста */
+    border: none; /* Убираем рамку */
+    border-radius: 5px; /* Закругленные углы */
+    font-size: 16px; /* Размер шрифта */
+    cursor: pointer; /* Указатель при наведении */
+    text-decoration: none; /* Убираем подчеркивание */
+    transition: background-color 0.3s; /* Плавный переход для фона */
+    margin-top: 10px; /* Отступ сверху для размещения ниже кнопки отправки */
+}
+
+.register-button:hover {
+    background-color: #5a6268; /* Темнее серый при наведении */
+}
+

@@ -1,5 +1,6 @@
 from django import forms
+from django.contrib.auth.forms import AuthenticationForm
 
-class AuthForm(forms.Form):
-    username = forms.CharField(max_length=100)
-    password = forms.CharField(max_length=100, widget=forms.PasswordInput)
+class AuthForm(AuthenticationForm):
+    def confirm_login_allowed(self, user):
+        pass

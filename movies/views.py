@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from . models import Movies
+from . forms import OrderForm
 
 
 # Create your views here.
@@ -18,4 +19,8 @@ def movie_detail(request, id):
 
 
 def buy_ticket(request, id):
-    pass
+    if request.method == 'POST':
+        form = OrderForm(request.POST)
+    else:
+        form = OrderForm()
+    return render(request, 'movies/movie_order.html', {'form': form})

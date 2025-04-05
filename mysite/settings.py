@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'authorisation',
+    'showtimes',
     'movies',
     'cinemas',
     'info',
