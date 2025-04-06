@@ -1,0 +1,22 @@
+{% extends "home/template.html" %}
+{% load static %}
+
+{% block title %}Информация{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'orders/css/success.css' %}">
+{% endblock %}
+
+{% block main %}
+<div class="modal" id="successModal">
+    <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <h2>Заказ успешно создан!</h2>
+        <p>Ваш заказ номер <strong>{{ order.id }}</strong> был успешно оформлен.</p>
+        <p>Спасибо за покупку!</p>
+    </div>
+</div>
+
+
+<script src="{% static 'orders/js/success.js' %}"></script>
+{% endblock %}

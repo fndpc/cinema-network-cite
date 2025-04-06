@@ -1,21 +1,50 @@
 {% extends "home/template.html" %}
 {% load static %}
 
-
-
 {% block title %}Покупка билета{% endblock %}
 
-
 {% block styles %}
-<link rel="stylesheet" href="{% static 'authorisation/css/authorisation.css' %}">
+<link rel="stylesheet" href="{% static 'movies/css/order.css' %}"> <!-- Подключаем CSS-файл -->
 {% endblock %}
 
 {% block main %}
+<h2>1. Фильм:</h2>
+<div class="movie-block" data-movie-id="{{ movie.id }}">
+    <img src="{{ movie.image.url }}" class="movie-image">
+    <div class="movie-details">
+        <p class="movie-title">{{ movie.title }}</p>
+        <p class="movie-description">{{ movie.description }}</p>
+    </div>
+</div>
 
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="OK">
-</form>
+<h2>2. Выберите кинотеатр:</h2>
+<div id="cinemaSelection">
+    {% for cinema in cinemas %}
+        <div class="cinema-block" data-cinema-id="{{ cinema.id }}">
+            <img src="{{ cinema.image.url }}" class="cinema-image" alt="{{ cinema.name }}">
+            <p>{{ cinema.name }}</p>
+        </div>
+    {% endfor %}
+</div>
 
+
+<h2>3. Выберите сеанс:</h2>
+<div id="showtimeSelection" style="display: none;">
+    {% for showtime in showtimes %}
+        <div class="showtime-block" data-showtime-id="{{ showtime.id }}" data-cinema-id="{{ showtime.cinema.id }}" data-movie-id="{{ showtime.movie.id }}">
+            <p>{{ showtime.time|date:"j F" }} - {{ showtime.price }} руб.</p>
+        </div>
+    {% endfor %}
+</div>
+
+
+
+<!-- Скрытое поле для хранения ID выбранного кинотеатра -->
+<input type="hidden" id="selectedCinemaId" value="">
+
+<h2>4. Купить билет:</h2>
+
+<a href="#" id="buyTicketButton" class="my-button" data-movie-id="{{ movie.id }}">Купить</a>
+
+<script src="{% static 'movies/js/order.js' %}"></script>
 {% endblock %}

@@ -12,6 +12,9 @@ class Hall(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name_plural = 'Halls'
+
 # Create your models here.
 class Cinemas(models.Model):
     name = models.CharField(max_length=255)
@@ -25,3 +28,7 @@ class Cinemas(models.Model):
 
     def __str__(self):
         return self.name
+
+
+    class Meta:
+        verbose_name_plural = 'Cinemas'

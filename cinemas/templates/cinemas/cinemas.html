@@ -9,6 +9,7 @@
 
 
 {% block main %}
+    <h1 class="active-movies-title">Кинотеатры</h1>
     <div class="cinemas">
         {% for cinema in cinemas %}
             <div class="cinema-card">
@@ -17,12 +18,6 @@
                 {% endif %}
                 <h2 class="cinema-title">{{ cinema.name }}</h2>
                 <p class="cinema-genre">Жанр: {{ cinema.rating }}</p>
-                <!-- <p>Залы:</p>
-                <ul>
-                    {% for hall in cinema.halls.all %}
-                        <li>{{ hall.name }}</li>
-                    {% endfor %}
-                </ul> -->
             </div>
         {% endfor %}
     </div>

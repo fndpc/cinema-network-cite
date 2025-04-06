@@ -2,8 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from . models import Movies
 from . forms import OrderForm
-
-
+from cinemas.models import Cinemas
+from showtimes.models import Showtimes
 # Create your views here.
 def movies_home(request):
     data = {
@@ -19,8 +19,7 @@ def movie_detail(request, id):
 
 
 def buy_ticket(request, id):
-    if request.method == 'POST':
-        form = OrderForm(request.POST)
-    else:
-        form = OrderForm()
-    return render(request, 'movies/movie_order.html', {'form': form})
+    data = {'movie': Movies.objects.get(pk=id),
+     'cinemas': Cinemas.objects.all(),
+      'showtimes': Showtimes.objects.filter(movie=id)}
+    return render(request, 'movies/movie_order.html', data)

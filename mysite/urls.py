@@ -9,7 +9,9 @@ urlpatterns = [
     path('movies/', include('movies.urls')),
     path('cinemas/', include('cinemas.urls')),
     path('about/', include('info.urls')),
-    path('authorisation/', include('authorisation.urls'))
+    path('authorisation/', include('authorisation.urls')),
+    path('showtimes/', include('showtimes.urls')),
+    path('orders/', include('orders.urls')),
 ]
 
 if settings.DEBUG:

@@ -20,3 +20,11 @@ class Showtimes(models.Model):
         self.clean()
         super().save(*args, **kwargs)
 
+
+    def __str__(self):
+        return f"{self.movie.title} в {self.cinema.name} в {self.time.strftime('%Y-%m-%d %H:%M')}"
+
+    class Meta:
+        verbose_name_plural = 'Showtimes'
+
+    
