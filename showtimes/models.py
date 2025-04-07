@@ -6,11 +6,11 @@ from movies.models import Movies
 
 
 class Showtimes(models.Model):
-    cinema = models.ForeignKey(Cinemas, on_delete=models.CASCADE)
-    hall = models.ForeignKey(Hall, on_delete=models.CASCADE)
-    movie = models.ForeignKey(Movies, on_delete=models.CASCADE)
-    time = models.DateTimeField()
-    price = models.IntegerField()
+    cinema = models.ForeignKey(Cinemas, on_delete=models.CASCADE, verbose_name='Кинотеатр')
+    hall = models.ForeignKey(Hall, on_delete=models.CASCADE, verbose_name='Зал')
+    movie = models.ForeignKey(Movies, on_delete=models.CASCADE, verbose_name='Фильм')
+    time = models.DateTimeField(verbose_name='Время')
+    price = models.IntegerField(verbose_name='Цена')
 
     def clean(self):
         if self.time <= timezone.now():
@@ -25,6 +25,6 @@ class Showtimes(models.Model):
         return f"{self.movie.title} в {self.cinema.name} в {self.time.strftime('%Y-%m-%d %H:%M')}"
 
     class Meta:
-        verbose_name_plural = 'Showtimes'
+        verbose_name_plural = 'Расписание'
 
     

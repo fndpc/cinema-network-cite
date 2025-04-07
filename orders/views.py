@@ -7,3 +7,4 @@ def orders(request, movie_id, cinema_id, showtime_id):
     order = Orders(showtime=Showtimes.objects.get(id=showtime_id), user=request.user)
     order.save()
     return render(request, 'orders/success.html', {'order': order.id})
+

@@ -19,4 +19,4 @@ class Movies(models.Model):
         return self.title
 
     class Meta:
-        verbose_name_plural = 'Movies'
+        verbose_name_plural = 'Фильмы'
