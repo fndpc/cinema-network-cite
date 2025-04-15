@@ -15,10 +15,15 @@
     border-radius: 5px; /* Закругленные углы */
     box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1); /* Легкая тень */
     z-index: 1000; /* Устанавливаем z-index, чтобы меню было выше других элементов */
+    opacity: 0; /* Начальное состояние - невидимое */
+    visibility: hidden; /* Скрываем элемент визуально */
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Плавный переход */
 }
 
 .dropdown:hover .dropdown-content {
     display: block; /* Показываем меню при наведении на родительский элемент */
+    opacity: 1; /* Показываем меню */
+    visibility: visible; /* Делаем его видимым */
 }
 
 .dropdown-content a {

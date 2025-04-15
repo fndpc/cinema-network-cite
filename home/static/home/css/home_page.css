@@ -31,7 +31,7 @@ header {
     color: #ffffff; /* Белый цвет текста */
     margin: 0 20px;
     text-decoration: none;
-    font-weight: 400; /* Обычный вес шрифта */
+    font-weight: 500; /* Устанавливаем фиксированный вес шрифта */
     transition: color 0.3s, font-weight 0.3s ease; /* Плавный переход для цвета и веса шрифта */
     position: relative; /* Для позиционирования псевдоэлемента */
     padding: 5px 0; /* Добавление вертикальных отступов для улучшения выравнивания */
@@ -52,8 +52,8 @@ header {
 
 .navbar a:hover {
     color: #ffffff; /* Белый цвет текста при наведении */
-    font-weight: 700; /* Жирный шрифт при наведении */
-    transform: scale(1.05); /* Увеличение размера при наведении */
+    font-weight: 500; /* Убираем изменение веса шрифта */
+    transform: none; /* Убираем изменение размера */
 }
 
 .navbar a:hover::after {
@@ -71,7 +71,7 @@ header {
 
 .navbar a:hover i {
     color: #ffffff; /* Белый цвет иконки при наведении */
-    transform: scale(1.1); /* Увеличение размера иконки при наведении */
+    transform: none; /* Убираем изменение размера */
 }
 
 .content {
@@ -91,22 +91,24 @@ h1 {
     margin-bottom: 20px;
     text-align: center; /* Центрирование заголовка */
     color: #ffffff; /* Золотистый цвет заголовка */
+    font-weight: 500; /* Устанавливаем фиксированный вес шрифта */
     transition: font-weight 0.3s; /* Плавный переход для веса шрифта */
 }
 
 h1:hover {
-    font-weight: 700; /* Жирный шрифт при наведении */
+    font-weight: 500; /* Убираем изменение веса шрифта */
 }
 
 h2 {
     font-size: 1.8em;
     margin-top: 30px;
     color: #ffffff; /* Золотистый цвет подзаголовка */
+    font-weight: 500; /* Устанавливаем фиксированный вес шрифта */
     transition: font-weight 0.3s; /* Плавный переход для веса шрифта */
 }
 
 h2:hover {
-    font-weight: 700; /* Жирный шрифт при наведении */
+    font-weight: 500; /* Убираем изменение веса шрифта */
 }
 
 ul {
