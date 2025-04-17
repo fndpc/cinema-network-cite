@@ -1,41 +1,45 @@
+/* Приведение к единому стилю */
+html {
+    overflow-y: scroll;
+}
+
 .dropdown {
-    position: relative; /* Для позиционирования выпадающего меню */
-    display: flex; /* Используем flexbox для выравнивания иконки по центру */
-    align-items: center; /* Вертикальное выравнивание иконки */
+    position: relative;
+    display: flex;
+    align-items: center;
 }
 
 .dropdown-content {
-    display: none; /* Скрываем выпадающее меню по умолчанию */
-    position: absolute; /* Позиционируем его относительно родителя */
-    left: 50%; /* Центрируем по горизонтали */
-    top: 100%; /* Позиционируем под иконкой */
-    transform: translateX(-50%); /* Сдвигаем меню влево на половину его ширины */
-    background-color: #2c2c2c; /* Цвет фона выпадающего меню */
-    min-width: 150px; /* Минимальная ширина выпадающего меню */
-    border-radius: 5px; /* Закругленные углы */
-    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1); /* Легкая тень */
-    z-index: 1000; /* Устанавливаем z-index, чтобы меню было выше других элементов */
-    opacity: 0; /* Начальное состояние - невидимое */
-    visibility: hidden; /* Скрываем элемент визуально */
-    transition: opacity 0.3s ease, visibility 0.3s ease; /* Плавный переход */
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%);
+    background-color: #2c2c2c;
+    min-width: 150px;
+    border-radius: 5px;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .dropdown:hover .dropdown-content {
-    display: block; /* Показываем меню при наведении на родительский элемент */
-    opacity: 1; /* Показываем меню */
-    visibility: visible; /* Делаем его видимым */
+    display: block;
+    opacity: 1;
+    visibility: visible;
 }
 
 .dropdown-content a {
-    color: #ffffff; /* Цвет текста ссылок */
-    padding: 10px 15px; /* Отступы для ссылок */
-    text-decoration: none; /* Убираем подчеркивание */
-    display: block; /* Делаем ссылки блочными элементами для удобства клика */
-    transition: background 0.3s; /* Плавный переход для фона */
-    border-radius: 5px; /* Закругленные углы для ссылок */
+    color: #ffffff;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    transition: background 0.3s;
+    border-radius: 5px;
 }
 
 .dropdown-content a:hover {
-    background-color: #3c3c3c; /* Цвет фона при наведении на ссылку */
-    /* Убедитесь, что border-radius не изменяется */
+    background-color: #3c3c3c;
 }

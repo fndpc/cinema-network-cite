@@ -2,113 +2,114 @@
     box-sizing: border-box;
 }
 
+html {
+    overflow-y: scroll;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background: #000000; /* Полностью черный фон */
-    color: #ffffff; /* Белый текст */
+    background: #000000;
+    color: #ffffff;
 }
 
 header {
-    display: flex; /* Используем flexbox для выравнивания элементов в одну линию */
-    justify-content: center; /* Центрируем все элементы в заголовке */
-    align-items: center; /* Вертикальное выравнивание элементов */
-    background-color: #1a1a1a; /* Темно-серый цвет для заголовка */
-    padding: 20px 0; /* Добавляем отступы сверху и снизу */
-    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1); /* Легкая тень */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1a1a1a;
+    padding: 20px 0;
+    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
 }
 
-
 .navbar {
-    display: flex; /* Используем flexbox для выравнивания ссылок в одну линию */
-    justify-content: center; /* Центрируем элементы */
-    align-items: center; /* Вертикальное выравнивание элементов */
-    margin-right: 20px; /* Отступ справа для отделения от выпадающего меню */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
 }
 
 .navbar a {
-    color: #ffffff; /* Белый цвет текста */
+    color: #ffffff;
     margin: 0 20px;
     text-decoration: none;
-    font-weight: 500; /* Устанавливаем фиксированный вес шрифта */
-    transition: color 0.3s, font-weight 0.3s ease; /* Плавный переход для цвета и веса шрифта */
-    position: relative; /* Для позиционирования псевдоэлемента */
-    padding: 5px 0; /* Добавление вертикальных отступов для улучшения выравнивания */
-    display: inline-block; /* Позволяет использовать transform без сдвига */
+    font-weight: 500;
+    transition: color 0.3s, font-weight 0.3s ease;
+    position: relative;
+    padding: 5px 0;
+    display: inline-block;
 }
 
 .navbar a::after {
     content: '';
     position: absolute;
     left: 50%;
-    bottom: -5px; /* Расстояние от текста до линии */
+    bottom: -5px;
     width: 0;
-    height: 2px; /* Толщина линии */
-    background: #ffffff; /* Белый цвет линии */
-    transition: width 0.3s ease, left 0.3s ease; /* Плавный переход для линии */
-    transform: translateX(-50%); /* Центрирование линии под текстом */
+    height: 2px;
+    background: #ffffff;
+    transition: width 0.3s ease, left 0.3s ease;
+    transform: translateX(-50%);
 }
 
 .navbar a:hover {
-    color: #ffffff; /* Белый цвет текста при наведении */
-    font-weight: 500; /* Убираем изменение веса шрифта */
-    transform: none; /* Убираем изменение размера */
+    color: #ffffff;
+    font-weight: 500;
+    transform: none;
 }
 
 .navbar a:hover::after {
-    width: 100%; /* Ширина линии при наведении */
-    left: 50%; /* Сдвиг линии влево */
+    width: 100%;
+    left: 50%;
 }
 
 .navbar i {
-    font-size: 20px; /* Увеличьте размер иконки */
-    color: #ffffff; /* Белый цвет иконки */
-    margin-left: 15px; /* Отступ слева для отделения от текста */
-    vertical-align: middle; /* Выравнивание по центру относительно текста */
-    transition: color 0.3s, transform 0.3s; /* Плавный переход для цвета и увеличения */
+    font-size: 20px;
+    color: #ffffff;
+    margin-left: 15px;
+    vertical-align: middle;
+    transition: color 0.3s, transform 0.3s;
 }
 
 .navbar a:hover i {
-    color: #ffffff; /* Белый цвет иконки при наведении */
-    transform: none; /* Убираем изменение размера */
+    color: #ffffff;
+    transform: none;
 }
 
 .content {
-    width: 80%; /* Занимает всю ширину */
+    width: 80%;
     margin: 40px auto;
     padding: 20px;
-    background: #1a1a1a; /* Темно-серый фон для контента */
+    background: #1a1a1a;
     border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1); /* Легкая тень */
-    transition: box-shadow 0.3s; /* Плавный переход для тени */
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+    transition: box-shadow 0.3s;
 }
-
-
 
 h1 {
     font-size: 2.5em;
     margin-bottom: 20px;
-    text-align: center; /* Центрирование заголовка */
-    color: #ffffff; /* Золотистый цвет заголовка */
-    font-weight: 500; /* Устанавливаем фиксированный вес шрифта */
-    transition: font-weight 0.3s; /* Плавный переход для веса шрифта */
+    text-align: center;
+    color: #ffffff;
+    font-weight: 500;
+    transition: font-weight 0.3s;
 }
 
 h1:hover {
-    font-weight: 500; /* Убираем изменение веса шрифта */
+    font-weight: 500;
 }
 
 h2 {
     font-size: 1.8em;
     margin-top: 30px;
-    color: #ffffff; /* Золотистый цвет подзаголовка */
-    font-weight: 500; /* Устанавливаем фиксированный вес шрифта */
-    transition: font-weight 0.3s; /* Плавный переход для веса шрифта */
+    color: #ffffff;
+    font-weight: 500;
+    transition: font-weight 0.3s;
 }
 
 h2:hover {
-    font-weight: 500; /* Убираем изменение веса шрифта */
+    font-weight: 500;
 }
 
 ul {
@@ -117,12 +118,12 @@ ul {
 }
 
 ul li {
-    background: #2c2c2c; /* Темно-серый фон для элементов списка */
+    background: #2c2c2c;
     margin: 10px 0;
-    padding: 15px; /* Увеличение отступа */
+    padding: 15px;
     border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1); /* Легкая тень */
-    transition: transform 0.3s, background 0.3s; /* Плавный переход для фона и увеличения */
+    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s, background 0.3s;
 }
 
 ul li:hover {
@@ -134,42 +135,42 @@ ul li:hover {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px; /* Отступ между карточками */
+    gap: 20px;
 }
 
 /* Стили для карточек фильмов */
 .popular-movies .movie-card {
-    background: #1a1a1a; /* Темный фон для карточек */
+    background: #1a1a1a;
     border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1); /* Легкая тень */
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
     padding: 15px;
-    width: 250px; /* Ширина карточки */
-    text-align: center; /* Центрирование текста */
-    transition: transform 0.3s, box-shadow 0.3s; /* Плавный переход для увеличения и тени */
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .popular-movies .movie-card:hover {
-    transform: scale(1.05); /* Увеличение карточки при наведении */
-    box-shadow: 0 6px 30px rgba(255, 255, 255, 0.2); /* Увеличение тени при наведении */
+    transform: scale(1.05);
+    box-shadow: 0 6px 30px rgba(255, 255, 255, 0.2);
 }
 
 /* Стили для изображений фильмов */
 .popular-movies .movie-image {
-    width: 100%; /* Ширина изображения */
-    height: auto; /* Автоматическая высота */
-    border-radius: 8px; /* Закругление углов изображения */
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
 }
 
 /* Стили для заголовков фильмов */
 .popular-movies .movie-title {
     font-size: 1.5em;
     margin: 10px 0;
-    color: #ffffff; /* Белый цвет заголовка фильма */
-    transition: font-weight 0.3s; /* Плавный переход для веса шрифта */
+    color: #ffffff;
+    transition: font-weight 0.3s;
 }
 
 .popular-movies .movie-title:hover {
-    font-weight: 700; /* Жирный шрифт при наведении */
+    font-weight: 700;
 }
 
 /* Стили для жанра, страны и рейтинга */
@@ -178,16 +179,16 @@ ul li:hover {
 .popular-movies .movie-rating {
     font-size: 1em;
     margin: 5px 0;
-    color: #cccccc; /* Светло-серый цвет для дополнительной информации */
+    color: #cccccc;
 }
 
 /* Стили для ссылок на фильмы */
 .popular-movies .movie-link {
-    text-decoration: none; /* Убирает подчеркивание */
-    color: inherit; /* Устанавливает цвет текста таким же, как у родительского элемента */
-    transition: color 0.3s; /* Плавный переход для цвета текста */
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s;
 }
 
 .popular-movies .movie-link:hover {
-    color: #ffffff; /* Белый цвет текста при наведении */
+    color: #ffffff;
 }

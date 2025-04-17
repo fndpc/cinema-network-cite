@@ -9,8 +9,15 @@
 
 {% block main %}
     <h1 class="active-movies-title">Активные фильмы</h1>
+
+    <form action="{% url "movies" %}" method="get">
+        <input type="search" type="text" name="search" placeholder="Введите название">
+        <button type="submit">Найти</button>
+        
+    </form>
+
     <div class="movie-container">
-        {% for movie in movies %}
+        {% for movie in object_list %}
             <div class="movie-card">
                 <a href="{{ movie.get_absolute_url }}" class="movie-link">
                     {% if movie.image %}

@@ -1,16 +1,30 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 from . models import Movies
-from . forms import OrderForm
 from cinemas.models import Cinemas
 from showtimes.models import Showtimes
 from django.contrib.auth.decorators import login_required
+from django.views.generic import ListView
 # Create your views here.
-def movies_home(request):
-    data = {
-        'movies': Movies.objects.all()
-    }
-    return render(request, 'movies/movies_home.html', data)
+
+
+class MovieView(ListView):
+    template_name = 'movies/movies_home.html'
+    model = Movies
+
+    def get_queryset(self):
+        search_term = self.request.GET.get('search')
+        if search_term:
+            return Movies.objects.filter(title__icontains=search_term)
+        return Movies.objects.all()
+    
+    def get_context_data(self, **kwargs):
+        context =  super().get_context_data(**kwargs)
+        context['search'] = self.request.GET.get('search')
+        return context
+
+
+
+
 
 
 def movie_detail(request, movie_slug):

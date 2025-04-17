@@ -1,146 +1,146 @@
-    /* Основные стили для страницы покупки билета */
-    .movie-block, .cinema-block {
-        background: #2c2c2c; /* Темно-серый фон для блоков фильма и кинотеатра */
-        border-radius: 5px; /* Закругленные углы */
-        padding: 15px; /* Отступы внутри блока */
-        margin: 10px; /* Отступы между блоками */
-        display: flex; /* Используем flexbox для выравнивания элементов */
-        align-items: center; /* Вертикальное выравнивание элементов */
-    }
+/* Приведение к единому стилю */
+.movie-block, .cinema-block {
+    background: #2c2c2c;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+}
 
-    .movie-image {
-        width: 150px; /* Фиксированная ширина для изображения фильма */
-        height: 225px; /* Фиксированная высота для изображения фильма */
-        object-fit: cover; /* Обеспечивает сохранение пропорций и заполнение области */
-        border-radius: 5px; /* Закругленные углы для изображения */
-        margin-right: 15px; /* Отступ справа от изображения */
-    }
+.movie-image {
+    width: 150px;
+    height: 225px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 15px;
+}
 
-    .movie-details {
-        display: flex; /* Используем flexbox для выравнивания элементов */
-        flex-direction: column; /* Вертикальное расположение элементов */
-    }
+.movie-details {
+    display: flex;
+    flex-direction: column;
+}
 
-    .movie-title {
-        font-size: 1.5em; /* Размер шрифта для названия фильма */
-        color: #ffffff; /* Белый цвет текста */
-        margin: 0; /* Убираем отступы */
-        font-weight: 700; /* Делаем текст полужирным */
-    }
+.movie-title {
+    font-size: 1.5em;
+    color: #ffffff;
+    margin: 0;
+    font-weight: 700;
+}
 
-    .movie-description {
-        font-size: 1em; /* Размер шрифта для описания фильма */
-        color: #cccccc; /* Светло-серый цвет текста для описания */
-        margin-top: 5px; /* Отступ сверху для описания */
-    }
+.movie-description {
+    font-size: 1em;
+    color: #cccccc;
+    margin-top: 5px;
+}
 
+.cinema-block {
+    flex-direction: column;
+    align-items: center;
+}
 
-    .cinema-block {
-        flex-direction: column; /* Вертикальное расположение элементов в блоке кинотеатра */
-        align-items: center; /* Центрирование элементов */
-    }
+.cinema-block p {
+    font-size: 1em;
+    color: #ffffff;
+    margin: 15px 0;
+    font-weight: 700;
+}
 
-    .cinema-block p {
-        font-size: 1em; /* Размер шрифта для названия кинотеатра */
-        color: #ffffff; /* Белый цвет текста */
-        margin: 15; /* Убираем отступы */
-        font-weight: 700; /* Делаем текст полужирным */
-    }
+.cinema-image {
+    width: 250px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+}
 
-    .cinema-image {
-        width: 250px; /* Фиксированная ширина для изображения кинотеатра */
-        height: 150px; /* Фиксированная высота для изображения кинотеатра */
-        object-fit: cover; /* Обеспечивает сохранение пропорций и заполнение области */
-        border-radius: 5px; /* Закругленные углы для изображения */
-    }
+.cinema-block.selected {
+    outline: 2px solid rgb(255, 255, 255);
+    outline-offset: -2px;
+}
 
-    .cinema-block.selected {
-        outline: 2px solid rgb(255, 255, 255); /* Оранжевая обводка снаружи */
-        outline-offset: -2px; /* Сдвигаем обводку внутрь, чтобы она не увеличивала размер блока */
-    }
+#cinemaSelection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+}
 
+label {
+    display: block;
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #ffffff;
+}
 
-    #cinemaSelection {
-        display: flex; /* Используем flexbox для выравнивания кинотеатров в ряд */
-        flex-wrap: wrap; /* Перенос элементов на новую строку при необходимости */
-        justify-content: flex-start; /* Выравнивание элементов по левому краю */
-        margin-bottom: 20px; /* Добавляем отступ снизу для разделения с кнопкой */
-    }
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background: #2c2c2c;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
 
-    label {
-        display: block; /* Блок для метки времени */
-        margin-top: 20px; /* Отступ сверху */
-        font-size: 1.2em; /* Размер шрифта для метки */
-        color: #ffffff; /* Белый цвет текста */
-    }
+select:disabled {
+    background: #1a1a1a;
+    color: #888888;
+}
 
-    select {
-        width: 100%; /* Ширина 100% от родительского блока */
-        padding: 10px; /* Отступы внутри выпадающего списка */
-        margin-top: 10px; /* Отступ сверху */
-        background: #2c2c2c; /* Темно-серый фон для выпадающего списка */
-        color: #ffffff; /* Белый цвет текста */
-        border: none; /* Убираем рамку */
-        border-radius: 5px; /* Закругленные углы */
-        transition: background 0.3s; /* Плавный переход для фона */
-    }
+a.my-button {
+    background: #28a745;
+    color: #ffffff;
+    padding: 15px 20px;
+    border: none;
+    margin: 10px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-decoration: none;
+}
 
-    select:disabled {
-        background: #1a1a1a; /* Темный фон для отключенного выпадающего списка */
-        color: #888888; /* Серый цвет текста для отключенного состояния */
-    }
+a.my-button:hover {
+    background: #218838;
+}
 
-    a.my-button {
-        background: #28a745; /* Зеленый цвет для кнопки */
-        color: #ffffff; /* Белый цвет текста */
-        padding: 15px 20px; /* Отступы внутри кнопки */
-        border: none; /* Убираем рамку */
-        margin: 10px; /* Отступы вокруг кнопки */
-        border-radius: 5px; /* Закругленные углы */
-        font-size: 1.2em; /* Размер шрифта для кнопки */
-        cursor: pointer; /* Указатель при наведении */
-        transition: background 0.3s; /* Плавный переход для фона */
-        clear: both; /* Убираем наложение с предыдущими элементами */
-        text-decoration: none; /* Убираем подчеркивание текста */
-    }
-    
-    a.my-button:hover {
-        background: #218838; /* Темный зеленый цвет при наведении */
-    }
-    
-    /* Основные стили для блока выбора сеанса */
 #showtimeSelection {
-    margin-top: 20px; /* Отступ сверху для разделения с предыдущими элементами */
+    margin-top: 20px;
 }
 
 .showtime-block {
-    background: #3c3c3c; /* Темно-серый фон для блока сеанса */
-    border-radius: 5px; /* Закругленные углы */
-    padding: 10px; /* Уменьшаем отступы внутри блока */
-    margin: 5px 0; /* Уменьшаем отступы между блоками */
-    display: flex; /* Используем flexbox для выравнивания элементов */
-    justify-content: space-between; /* Выравнивание элементов по краям */
-    align-items: center; /* Вертикальное выравнивание элементов */
-    cursor: pointer; /* Указатель при наведении */
-    transition: background 0.3s; /* Плавный переход для фона */
+    background: #3c3c3c;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.3s;
     width: 180px;
     text-align: center;
 }
 
 .showtime-block:hover {
-    background: #4c4c4c; /* Светлее фон при наведении */
+    background: #4c4c4c;
 }
 
 .showtime-block.selected {
-    outline: 2px solid rgb(255, 255, 255); /* Белая обводка для выбранного сеанса */
-    outline-offset: -2px; /* Сдвигаем обводку внутрь */
+    outline: 2px solid rgb(255, 255, 255);
+    outline-offset: -2px;
 }
 
 .showtime-block p {
-    margin: 0; /* Убираем отступы */
-    color: #ffffff; /* Белый цвет текста */
-    font-size: 1em; /* Размер шрифта для текста сеанса */
-    font-weight: 700; /* Устанавливаем толщину шрифта на 700 (полужирный) */
+    margin: 0;
+    color: #ffffff;
+    font-size: 1em;
+    font-weight: 700;
+}
+
+html {
+    overflow-y: scroll;
 }
 
 

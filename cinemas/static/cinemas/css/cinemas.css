@@ -1,57 +1,62 @@
+/* Приведение к единому стилю */
+html {
+    overflow-y: scroll;
+}
+
 .cinemas {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px; /* Отступ между карточками */
+    gap: 20px;
 }
 
 .cinema-card {
-    background: #1a1a1a; /* Темный фон для карточек */
+    background: #1a1a1a;
     border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1); /* Легкая тень */
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
     padding: 15px;
-    width: 400px; /* Ширина карточки */
-    text-align: center; /* Центрирование текста */
-    transition: transform 0.3s, box-shadow 0.3s; /* Плавный переход для увеличения и тени */
+    width: 400px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .cinema-card:hover {
-    transform: scale(1.05); /* Увеличение карточки при наведении */
-    box-shadow: 0 6px 30px rgba(255, 255, 255, 0.2); /* Увеличение тени при наведении */
+    transform: scale(1.05);
+    box-shadow: 0 6px 30px rgba(255, 255, 255, 0.2);
 }
 
 .cinema-image {
-    width: 100%; /* Ширина изображения */
-    height: auto; /* Автоматическая высота */
-    border-radius: 8px; /* Закругление углов изображения */
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
 }
 
 .cinema-title {
-    font-size: 1.5em; /* Размер заголовка */
-    margin: 10px 0; /* Отступы вокруг заголовка */
-    color: #ffffff; /* Белый цвет заголовка */
+    font-size: 1.5em;
+    margin: 10px 0;
+    color: #ffffff;
 }
 
 .cinema-genre {
-    font-size: 1em; /* Размер текста для жанра */
-    margin: 5px 0; /* Отступы вокруг текста */
-    color: #cccccc; /* Светло-серый цвет для дополнительной информации */
+    font-size: 1em;
+    margin: 5px 0;
+    color: #cccccc;
 }
 
 ul {
-    list-style-type: none; /* Убираем маркеры списка */
-    padding: 0; /* Убираем отступы */
+    list-style-type: none;
+    padding: 0;
 }
 
 ul li {
-    background: #2c2c2c; /* Темно-серый фон для элементов списка */
-    margin: 5px 0; /* Отступы между элементами списка */
-    padding: 10px; /* Внутренние отступы */
-    border-radius: 5px; /* Закругление углов */
-    color: #ffffff; /* Белый цвет текста для элементов списка */
-    transition: background 0.3s; /* Плавный переход для фона */
+    background: #2c2c2c;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    color: #ffffff;
+    transition: background 0.3s;
 }
 
 ul li:hover {
-    background: #3c3c3c; /* Изменение фона при наведении */
+    background: #3c3c3c;
 }
