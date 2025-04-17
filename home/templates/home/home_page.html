@@ -1,20 +1,41 @@
 {% extends "home/template.html" %}
 {% load static %}
 
-
-
 {% block title %}Главная{% endblock %}
 
 {% block main %}
-    <h1>Добро пожаловать в CinemaПарк из VS Code!</h1>
-    <p>CinemaПарк — это сеть современных кинотеатров, предлагающая широкий выбор фильмов, удобные залы и комфортные условия для просмотра.</p>
-    <h2>Наши услуги:</h2>
-    <ul>
-        <li>Показ новинок кино</li>
-        <li>Комфортабельные залы</li>
-        <li>Кафе и бары с разнообразным меню</li>
-        <li>Специальные предложения для групп</li>
-    </ul>
-    <h2>Следите за нашими новинками!</h2>
-    <p>Подписывайтесь на наши социальные сети и будьте в курсе всех событий и акций.</p>
+    <header>
+        <h1>Добро пожаловать в CinemaПарк из VS Code!</h1>
+    </header>
+    <section>
+        <p>CinemaПарк — это сеть современных кинотеатров, предлагающая широкий выбор фильмов, удобные залы и комфортные условия для просмотра.</p>
+        <h2>Наши услуги:</h2>
+        <ul>
+            <li>Показ новинок кино</li>
+            <li>Комфортабельные залы</li>
+            <li>Кафе и бары с разнообразным меню</li>
+            <li>Специальные предложения для групп</li>
+        </ul>
+        <h2>Следите за нашими новинками!</h2>
+        <p>Подписывайтесь на наши социальные сети и будьте в курсе всех событий и акций.</p>
+    </section>
+
+    <section class="popular-movies">
+        <h1>Популярные новинки</h1>
+        <div class="movie-container">
+            {% for movie in object_list %}
+                <article class="movie-card">
+                    <a href="{{ movie.get_absolute_url }}" class="movie-link" aria-label="{{ movie.title }}">
+                        {% if movie.image %}
+                            <img src="{{ movie.image.url }}" alt="{{ movie.title }}" class="movie-image" />
+                        {% endif %}
+                        <h3 class="movie-title">{{ movie.title }}</h3>
+                        <p class="movie-genre">Жанр: {{ movie.genre }}</p>
+                        <p class="movie-country">Страна: {{ movie.country }}</p>
+                        <p class="movie-rating">Рейтинг: {{ movie.rating }}</p>
+                    </a>
+                </article>
+            {% endfor %}
+        </div>
+    </section>
 {% endblock %}

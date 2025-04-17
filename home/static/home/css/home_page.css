@@ -128,3 +128,66 @@ ul li {
 ul li:hover {
     background: #3c3c3c;
 }
+
+/* Стили для контейнера фильмов */
+.popular-movies .movie-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Отступ между карточками */
+}
+
+/* Стили для карточек фильмов */
+.popular-movies .movie-card {
+    background: #1a1a1a; /* Темный фон для карточек */
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1); /* Легкая тень */
+    padding: 15px;
+    width: 250px; /* Ширина карточки */
+    text-align: center; /* Центрирование текста */
+    transition: transform 0.3s, box-shadow 0.3s; /* Плавный переход для увеличения и тени */
+}
+
+.popular-movies .movie-card:hover {
+    transform: scale(1.05); /* Увеличение карточки при наведении */
+    box-shadow: 0 6px 30px rgba(255, 255, 255, 0.2); /* Увеличение тени при наведении */
+}
+
+/* Стили для изображений фильмов */
+.popular-movies .movie-image {
+    width: 100%; /* Ширина изображения */
+    height: auto; /* Автоматическая высота */
+    border-radius: 8px; /* Закругление углов изображения */
+}
+
+/* Стили для заголовков фильмов */
+.popular-movies .movie-title {
+    font-size: 1.5em;
+    margin: 10px 0;
+    color: #ffffff; /* Белый цвет заголовка фильма */
+    transition: font-weight 0.3s; /* Плавный переход для веса шрифта */
+}
+
+.popular-movies .movie-title:hover {
+    font-weight: 700; /* Жирный шрифт при наведении */
+}
+
+/* Стили для жанра, страны и рейтинга */
+.popular-movies .movie-genre,
+.popular-movies .movie-country,
+.popular-movies .movie-rating {
+    font-size: 1em;
+    margin: 5px 0;
+    color: #cccccc; /* Светло-серый цвет для дополнительной информации */
+}
+
+/* Стили для ссылок на фильмы */
+.popular-movies .movie-link {
+    text-decoration: none; /* Убирает подчеркивание */
+    color: inherit; /* Устанавливает цвет текста таким же, как у родительского элемента */
+    transition: color 0.3s; /* Плавный переход для цвета текста */
+}
+
+.popular-movies .movie-link:hover {
+    color: #ffffff; /* Белый цвет текста при наведении */
+}

@@ -24,7 +24,7 @@
             <p class="actors">Актеры: {{ movie.actors }}</p>
             <p class="country">Страна: {{ movie.country }}</p>
             <p class="description">{{ movie.description }}</p>
-            <a href="{% url 'buy_ticket' movie.id %}" class="my-button">Купить билет</a>
+            <a href="{% url 'buy_ticket' movie.slug %}" class="my-button">Купить билет</a>
 
         </div>
     </div>

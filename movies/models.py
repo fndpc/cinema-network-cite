@@ -1,5 +1,7 @@
 from django.db import models
 from django.core.validators import MaxValueValidator
+from django.urls import reverse
+
 
 # Create your models here.
 class Movies(models.Model):
@@ -13,10 +15,15 @@ class Movies(models.Model):
     actors = models.CharField(max_length=255)
     country = models.CharField(max_length=30)
     image = models.ImageField(upload_to='movies_images/')
+    slug = models.SlugField(unique=True)
     
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse("movie_detail", kwargs={"movie_slug": self.slug})
+    
 
     class Meta:
         verbose_name_plural = 'Фильмы'
