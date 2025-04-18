@@ -4,10 +4,46 @@
 {% block title %}Расписание{% endblock %}
 
 {% block styles %}
-    <link rel="stylesheet" href="{% static 'cinemas/css/cinemas.css' %}">
+    <link rel="stylesheet" href="{% static 'showtime/css/showtime.css' %}">
 {% endblock %}
 
-
 {% block main %}
-    Расписание
+    <div class="content">
+        <h1>Расписание</h1>
+
+        <form method="GET" action="{% url 'showtimes' %}">
+            <label for="date">Выберите дату:</label>
+            <input type="date" id="date" name="date" required>
+            <button type="submit">Показать</button>
+        </form>
+
+
+
+
+        <div>
+            {% if object_list %}
+                <ul>
+                    {% for showtime in object_list %}
+    <div class="movie-card">
+        <img src="{{ showtime.movie.image.url }}" alt="{{ showtime.movie.title }} постер" class="movie-poster">
+        <div class="movie-details">
+            <h2>{{ showtime.movie.title }}</h2>
+            <p><strong>Жанр:</strong> {{ showtime.movie.genre }}</p>
+            <p><strong>Рейтинг:</strong> {{ showtime.movie.rating }}</p>
+            <p><strong>Продолжительность:</strong> {{ showtime.movie.duration }}</p>
+            <p><strong>Кинотеатр:</strong> {{ showtime.cinema.name }}</p>
+            <p><strong>Зал:</strong> {{ showtime.hall.name }}</p>
+            <p><strong>Время:</strong> {{ showtime.time|date:"Y-m-d H:i" }}</p>
+            <p><strong>Цена:</strong> {{ showtime.price }} руб.</p>
+            <p><strong>Статус:</strong> {% if showtime.status %}Прошел{% else %}Не прошел{% endif %}</p>
+        </div>
+    </div>
+    <hr>
+{% endfor %}
+                </ul>
+            {% else %}
+                <p style="text-align: center; color: #ffffff;">Нет доступных показов.</p>
+            {% endif %}
+        </div>
+    </div>
 {% endblock %}

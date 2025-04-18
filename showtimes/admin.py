@@ -4,4 +4,5 @@ from . import models
 
 @admin.register(models.Showtimes)
 class ShowtimesAdmin(admin.ModelAdmin):
-    list_display = ['id', 'cinema', 'hall', 'movie', 'time', 'price']
+    list_display = ['id', 'cinema', 'hall', 'movie', 'time', 'price', 'status']
+    list_filter = ('status', 'time',)

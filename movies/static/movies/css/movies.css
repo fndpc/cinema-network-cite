@@ -82,7 +82,7 @@ input[type="search"]:focus {
 
 button {
     padding: 10px 15px;
-    background-color: #007bff;
+    background: linear-gradient(90deg, #4a90e2, #50e3c2);
     color: #ffffff;
     border: none;
     border-radius: 4px;
@@ -93,5 +93,6 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-position: 100% 0; /* Перемещаем градиент при наведении */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
