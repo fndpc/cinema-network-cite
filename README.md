@@ -1,2 +1,2 @@
-#Веб приложение для администрирования сети кинотеатров
-**Stack: Postgresql, Django, Docker, Celery**
+# Веб приложение для администрирования сети кинотеатров
+**Stack: Postgresql, Django, Docker**
