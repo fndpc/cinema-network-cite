@@ -1,81 +1,73 @@
-/* Приведение к единому стилю */
-html {
-    overflow-y: scroll;
-}
-
-.movie-detail {
+.container {
     display: flex;
-    max-width: 800px;
-    margin: 20px auto;
-    border: 1px solid #444;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
-    background-color: #1a1a1a;
-    color: #ffffff;
+    align-items: flex-start; /* Выравнивание по верхнему краю */
 }
 
 .movie-poster {
     flex: 1;
-    padding: 10px;
-}
-
-.movie-poster img {
-    max-width: 100%;
-    border-radius: 8px;
+    max-width: 300px;
+    margin-right: 20px;
 }
 
 .movie-info {
-    flex: 2;
-    padding: 20px;
+    flex: 2; /* Можно настроить, чтобы задать пропорции */
 }
 
+.movie-poster img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+}
+
+
+
 .movie-info h1 {
-    font-size: 24px;
+    display: flex;
+    font-weight: bold;
+    font-size: 3em;
+    margin-top: 10px;
     margin-bottom: 10px;
     color: #ffffff;
 }
 
 .movie-info p {
     margin: 5px 0;
-    font-size: 16px;
     color: #cccccc;
+    font-size: 1.1em;
 }
 
-.genre, .release-date, .rating, .duration, .filmmaker, .actors, .country {
-    font-weight: bold;
-    color: #ffffff;
+.movie-info .genre,
+.movie-info .release-date,
+.movie-info .rating,
+.movie-info .duration,
+.movie-info .filmmaker,
+.movie-info .country {
+    font-weight: 500;
 }
 
-.description {
+.movie-info .description {
     margin-top: 15px;
-    font-size: 14px;
-    line-height: 1.5;
-    color: #cccccc;
+    font-size: 1em;
+    color: #dddddd;
 }
 
 .my-button {
+    display: flex;
+    scale: 120%;
     display: inline-block;
+    margin-top: 20px;
+    margin-left: 15px;
     padding: 10px 20px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #28a745;
-    border: none;
-    border-radius: 5px;
-    text-align: center;
+    background: linear-gradient(90deg, #0084ff, #003fb3); /* Яркий синий градиент */
+    color: #ffffff;
+    font-weight: bold; /* Жирный текст */
     text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    border-radius: 5px;
+    background-size: 200% 100%; /* Увеличиваем размер градиента */
+    transition: background-position 0.5s ease; /* Плавный переход */
 }
 
 .my-button:hover {
-    background-color: #218838;
-}
-
-.my-button:active {
-    background-color: #1e7e34;
-}
-
-.my-button:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(40, 167, 69, 0.5);
+    background-position: right; /* Перемещаем градиент вправо при наведении */
+    transition: background-position 0.5s ease; /* Плавный переход фона при наведении */
 }

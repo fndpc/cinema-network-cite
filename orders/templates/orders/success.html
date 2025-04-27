@@ -8,15 +8,19 @@
 {% endblock %}
 
 {% block main %}
-<div class="modal" id="successModal">
-    <div class="modal-content">
-        <span class="close" id="closeModal">&times;</span>
-        <h2>Заказ успешно создан!</h2>
-        <p>Ваш заказ номер <strong>{{ order.id }}</strong> был успешно оформлен.</p>
-        <p>Спасибо за покупку!</p>
+<h1>Ваш заказ {{ order.id }} успешно создан!</h1>
+<div class="movie-detail">
+    <div class="movie-poster">
+        <img src="{{ order.showtime.movie.image.url }}" alt="{{ order.movie.title }} Poster">
     </div>
+
+    <div class="movie-info">
+    <h1>{{ order.movie.title }}</h1>
+    <p class="genre">Жанр: {{ order.movie.genre }}</p>
+    <p class="rating">Рейтинг: {{ order.movie.rating }}</p>
+    <p class="duration">Продолжительность: {{ order.movie.duration }}</p>
+    <p class="country">Страна: {{ order.movie.country }}</p>
+    </div>
+
 </div>
-
-
-<script src="{% static 'orders/js/success.js' %}"></script>
 {% endblock %}

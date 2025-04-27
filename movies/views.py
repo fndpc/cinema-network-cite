@@ -13,10 +13,15 @@ class MovieView(ListView):
     model = Movies
 
     def get_queryset(self):
-        search_term = self.request.GET.get('search')
-        if search_term:
-            return Movies.objects.filter(title__icontains=search_term)
-        return Movies.objects.all()
+        search_request = self.request.GET.get('search')
+        choisen_filters = self.request.GET.get('genre')
+        queryset = Movies.objects.all()
+        if search_request:
+            queryset = queryset.filter(title__icontains=search_request)
+        if choisen_filters:
+            queryset = queryset.filter(genre__icontains=choisen_filters)
+        return queryset
+    
     
     def get_context_data(self, **kwargs):
         context =  super().get_context_data(**kwargs)

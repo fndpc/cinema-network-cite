@@ -10,7 +10,7 @@ html {
 }
 
 .dropdown-content {
-    display: none;
+    display: none; /* Скрываем по умолчанию */
     position: absolute;
     left: 50%;
     top: 100%;
@@ -25,10 +25,10 @@ html {
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.dropdown:hover .dropdown-content {
-    display: block;
-    opacity: 1;
-    visibility: visible;
+.dropdown-content.show {
+    display: block; /* Показываем, когда класс 'show' добавлен */
+    opacity: 1; /* Делаем видимым */
+    visibility: visible; /* Делаем видимым */
 }
 
 .dropdown-content a {

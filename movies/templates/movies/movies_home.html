@@ -10,11 +10,31 @@
 {% block main %}
     <h1 class="active-movies-title">Активные фильмы</h1>
 
-    <form action="{% url "movies" %}" method="get">
-        <input type="search" type="text" name="search" placeholder="Введите название">
-        <button type="submit">Найти</button>
-        
+    <form action="{% url 'movies' %}" method="get" class="search-form">
+        <input type="search" name="search" placeholder="Введите название" class="search-input">
+        <button type="submit" class="search-button">Найти</button>
+    
+        <div class="checkbox-group">
+            <label>
+                <input type="checkbox" name="genre" value="Ужасы"> Ужасы
+            </label>
+            <label>
+                <input type="checkbox" name="genre" value="Драма"> Драма
+            </label>
+            <label>
+                <input type="checkbox" name="genre" value="Триллер"> Триллер
+            </label>
+            <label>
+                <input type="checkbox" name="genre" value="Фэнтези"> Фэнтези
+            </label>
+        </div>
+
+        <a href="{% url 'movies' %}" class="red-button">Сбросить</a>
+
     </form>
+
+  
+    
 
     <div class="movie-container">
         {% for movie in object_list %}

@@ -25,6 +25,7 @@ class Cinemas(models.Model):
     verbose_name='Рейтинг', validators=[MaxValueValidator(5.0)])
     description = models.TextField(verbose_name='Описание')
     image = models.ImageField(upload_to='cinema_images/', verbose_name='Изображение кинотеатра')
+    coordinates = models.JSONField(default=[0, 0])
 
     
 

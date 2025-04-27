@@ -9,3 +9,5 @@ class Orders(models.Model):
 
     class Meta:
         verbose_name_plural = 'Закакзы'
+
+    

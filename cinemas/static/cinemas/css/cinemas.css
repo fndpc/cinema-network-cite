@@ -13,21 +13,15 @@ html {
 .cinema-card {
     background: #1a1a1a;
     border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
     padding: 15px;
     width: 400px;
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.cinema-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 30px rgba(255, 255, 255, 0.2);
-}
-
 .cinema-image {
     width: 100%;
-    height: auto;
+    height: 250px;
     border-radius: 8px;
 }
 
@@ -41,6 +35,10 @@ html {
     font-size: 1em;
     margin: 5px 0;
     color: #cccccc;
+}
+.cinema-card button {
+    margin-top: 12px; /* Отодвигаем кнопку вниз */
+    align-self: center; /* Центрируем кнопку по горизонтали */
 }
 
 ul {
@@ -59,4 +57,137 @@ ul li {
 
 ul li:hover {
     background: #3c3c3c;
+}
+
+
+
+/* ЭКСПЕРЕМЕНТЫ */
+
+
+#myModal {
+    display: none; /* Скрыть окно по умолчанию */
+    position: fixed; /* Окно фиксировано */
+    z-index: 1; /* На переднем плане */
+    left: 0;
+    top: 0;
+    width: 100%; /* Полная ширина */
+    height: 100%; /* Полная высота */
+    overflow: auto; /* Включить прокрутку, если необходимо */
+    background-color: rgb(0,0,0); /* Черный фон */
+    background-color: rgba(0,0,0,0.4); /* Полупрозрачный фон */
+}
+
+#modalContent {
+    background-color: #fefefe;
+    border: 1px solid #888;
+    width: 1000px; /* Ширина окна */
+    height: 500px; /* Высота окна */
+    position: fixed; /* Фиксированное позиционирование */
+    left: 50%; /* Центрирование по горизонтали */
+    top: 50%; /* Центрирование по вертикали */
+    transform: translate(-50%, -50%); /* Центрирование */
+    border-radius: 10px; /* Скругленные углы */
+    overflow: hidden; /* Скрыть переполнение */
+}
+
+.map {
+    width: 980px; /* Ширина карты с учетом отступов */
+    height: 460px; /* Высота карты с учетом отступов */
+    margin: 30px 10px 10px 10px; /* Увеличиваем отступ сверху до 20px, остальные отступы остаются 10px */
+    background-color: #cccccc;
+    border: none; /* Убираем границы */
+    padding: 0; /* Убираем внутренние отступы */
+    box-shadow: none; /* Убираем тени, если есть */
+}
+
+.map-button {
+    scale: 120%;
+    display: inline-block;
+    margin-top: 0px;
+    margin-left: 5px;
+    padding: 10px 20px;
+    background: linear-gradient(90deg, #0091ff, #003fb3); /* Яркий синий градиент */
+    color: #ffffff;
+    font-weight: bold; /* Жирный текст */
+    text-decoration: none; /* Убираем подчеркивание */
+    border: none; /* Убираем стандартную рамку кнопки */
+    border-radius: 5px;
+    background-size: 200% 100%; /* Увеличиваем размер градиента */
+    transition: background-position 0.5s ease; /* Плавный переход */
+    cursor: pointer; /* Указатель при наведении */
+}
+
+.map-button:hover {
+    background-position: right; /* Перемещаем градиент вправо при наведении */
+    transition: background-position 0.5s ease; /* Плавный переход фона при наведении */
+}
+
+.close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute; /* Позиционирование относительно родителя */
+    top: 0x; /* Отступ сверху */
+    right: 10px; /* Отступ справа */
+    cursor: pointer; /* Указатель при наведении */
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+}
+
+.image {
+    transition: scale 0.3s ease-out;
+}
+
+.image:hover {
+    scale: 1.1;
+}
+
+.marker-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+.marker {
+    overflow: hidden;
+    width: 52px;
+    display: flex;
+    justify-content: center;
+    height: 52px;
+    transition: border-width 0.3s linear;
+    box-sizing: content-box;
+}
+
+.marker:hover {
+    border-width: 2px;
+    box-shadow: 0px 2px 4px 0px #5f698333;
+}
+
+.marker-text {
+    color: #050d33;
+    font-weight: 500;
+    font-size: 14px;
+    top: -27px;
+    position: absolute;
+    background-color: #ffffff;
+    border-radius: 8px;
+    transition: all 0.3s ease-out;
+}
+
+.marker-text.visible {
+    opacity: 1;
+    padding: 4px 8px;
+    transform: translateY(0);
+}
+
+.marker-text.hidden {
+    opacity: 0;
+    padding: 4px 0;
+    transform: translateY(4px);
 }

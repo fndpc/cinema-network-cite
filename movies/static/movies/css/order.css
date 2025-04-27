@@ -88,22 +88,26 @@ select:disabled {
     color: #888888;
 }
 
-a.my-button {
-    background: #28a745;
+.my-button {
+    scale: 120%;
+    display: inline-block;
+    margin-top: 20px;
+    margin-left: 15px;
+    padding: 10px 20px;
+    background: linear-gradient(90deg, #0084ff, #003fb3); /* Яркий синий градиент */
     color: #ffffff;
-    padding: 15px 20px;
-    border: none;
-    margin: 10px;
-    border-radius: 5px;
-    font-size: 1.2em;
-    cursor: pointer;
-    transition: background 0.3s;
+    font-weight: bold; /* Жирный текст */
     text-decoration: none;
+    border-radius: 5px;
+    background-size: 200% 100%; /* Увеличиваем размер градиента */
+    transition: background-position 0.5s ease; /* Плавный переход */
 }
 
-a.my-button:hover {
-    background: #218838;
+.my-button:hover {
+    background-position: right; /* Перемещаем градиент вправо при наведении */
+    transition: background-position 0.5s ease; /* Плавный переход фона при наведении */
 }
+
 
 #showtimeSelection {
     margin-top: 20px;

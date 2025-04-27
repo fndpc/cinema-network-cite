@@ -1,14 +1,3 @@
-/* Стили для страницы расписания показов */
-.content {
-    width: 80%;
-    margin: 40px auto;
-    padding: 20px;
-    background: #1a1a1a;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
-    transition: box-shadow 0.3s;
-}
-
 h1 {
     font-size: 2.5em;
     margin-bottom: 20px;
@@ -102,18 +91,12 @@ hr {
     border-radius: 8px;
     margin: 10px 0;
     padding: 15px;
-    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.movie-card:hover {
-    transform: scale(1.02);
-    box-shadow: 0 6px 30px rgba(255, 255, 255, 0.2);
-}
 
 .movie-poster {
-    width: 150px; /* Ширина постера */
-    height: 225px; /* Задайте фиксированную высоту для постера */
+    width: auto; /* Ширина постера */
+    height: 255px; /* Задайте фиксированную высоту для постера */
     border-radius: 5px;
     margin-right: 15px; /* Отступ справа от постера */
     object-fit: cover; /* Сохраняет пропорции изображения и обрезает его, если необходимо */
@@ -128,6 +111,26 @@ hr {
     font-size: 1.8em;
     margin: 0 0 10px 0; /* Отступы для заголовка */
     color: #ffffff;
+    font-weight: bold;
+}
+
+.buy-button {
+    scale: 100%;
+    display: inline-block;
+    margin-top: 25px;
+    padding: 10px 20px;
+    background: linear-gradient(90deg, #0084ff, #003fb3); /* Яркий синий градиент */
+    color: #ffffff;
+    font-weight: bold; /* Жирный текст */
+    text-decoration: none;
+    border-radius: 5px;
+    background-size: 200% 100%; /* Увеличиваем размер градиента */
+    transition: background-position 0.5s ease; /* Плавный переход */
+}
+
+.buy-button:hover {
+    background-position: right; /* Перемещаем градиент вправо при наведении */
+    transition: background-position 0.5s ease; /* Плавный переход фона при наведении */
 }
 
 .movie-details p {
