@@ -12,6 +12,14 @@ body {
     padding: 0;
     background: #000000;
     color: #ffffff;
+
+}
+
+body h1 {
+    font-weight: 600;
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 header {
@@ -86,23 +94,12 @@ header {
     transition: box-shadow 0.3s;
 }
 
-h1 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-    text-align: center;
-    color: #ffffff;
-    font-weight: 500;
-    transition: font-weight 0.3s;
-}
 
-h1:hover {
-    font-weight: 500;
-}
+
 
 h2 {
     font-size: 1.8em;
     margin-top: 30px;
-    color: #ffffff;
     font-weight: 500;
     transition: font-weight 0.3s;
 }
@@ -164,7 +161,6 @@ ul li:hover {
 .popular-movies .movie-title {
     font-size: 1.5em;
     margin: 10px 0;
-    color: #ffffff;
     transition: font-weight 0.3s;
 }
 
@@ -178,7 +174,6 @@ ul li:hover {
 .popular-movies .movie-rating {
     font-size: 1em;
     margin: 5px 0;
-    color: #cccccc;
 }
 
 /* Стили для ссылок на фильмы */
@@ -188,6 +183,37 @@ ul li:hover {
     transition: color 0.3s;
 }
 
-.popular-movies .movie-link:hover {
-    color: #ffffff;
+.fa-regular.fa-user {
+    cursor: pointer;
+}
+
+
+/*  СВЕТЛАЯ ТЕМА */
+.light-theme {
+    background: #ffffff;
+    color: #000000;
+}
+
+.light-theme header {
+    background-color: #f0f0f0;
+}
+
+.light-theme .content {
+    background: #ffffff;
+    color: #000000;
+}
+
+.light-theme ul li {
+    background: #e0e0e0;
+}
+
+.light-theme .popular-movies .movie-card {
+    background: #f0f0f0;
+}
+
+.light-theme .popular-movies .movie-title,
+.light-theme .popular-movies .movie-genre,
+.light-theme .popular-movies .movie-country,
+.light-theme .popular-movies .movie-rating {
+    color: #000000;
 }

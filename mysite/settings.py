@@ -17,14 +17,14 @@ INTERNAL_IPS = [
 ]
 
 
-LOGIN_URL = reverse_lazy('authorisation')
+LOGIN_URL = reverse_lazy('login')
 
 # Application definition
 
 INSTALLED_APPS = [
-    "debug_toolbar",
+    'users',
+    'debug_toolbar',
     'orders',
-    'authorisation',
     'showtimes',
     'movies',
     'cinemas',

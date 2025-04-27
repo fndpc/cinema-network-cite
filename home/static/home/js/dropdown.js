@@ -1,36 +1,22 @@
-let dropdownTimeout;
+document.addEventListener('DOMContentLoaded', function() {
+    const userIcon = document.querySelector('.fa-regular.fa-user');
+    const dropdown = document.getElementById('profileDropdown');
 
-function toggleDropdown() {
-    const dropdown = document.getElementById("profileDropdown");
-    dropdown.classList.toggle("show");
-    clearTimeout(dropdownTimeout); // Очищаем таймер, если меню открывается
-}
-
-function hideDropdown() {
-    const dropdown = document.getElementById("profileDropdown");
-    dropdownTimeout = setTimeout(() => {
-        if (dropdown.classList.contains('show')) {
-            dropdown.classList.remove("show");
-        }
-    }, 500); // Задержка перед скрытием (300 мс)
-}
-
-// Закрыть выпадающее меню, если кликнули вне его
-window.onclick = function(event) {
-    if (!event.target.matches('.fa-regular.fa-user') && !event.target.closest('.dropdown-content')) {
-        hideDropdown();
+    function toggleDropdown() {
+        dropdown.classList.toggle('show');
     }
-}
 
-// Добавляем обработчики событий для наведения
-const userIcon = document.querySelector('.fa-regular.fa-user');
-userIcon.addEventListener('mouseenter', () => {
-    clearTimeout(dropdownTimeout); // Очищаем таймер, если курсор на иконке
-    toggleDropdown(); // Открываем меню при наведении на иконку
-});
+    if (userIcon) {
+        userIcon.addEventListener('click', function(event) {
+            event.stopPropagation();
+            toggleDropdown();
+        });
+    }
 
-userIcon.addEventListener('mouseleave', hideDropdown);
-document.getElementById("profileDropdown").addEventListener('mouseenter', () => {
-    clearTimeout(dropdownTimeout); // Очищаем таймер, если курсор на меню
+    // Закрыть при клике вне меню
+    document.addEventListener('click', function(event) {
+        if (!event.target.closest('.dropdown') && !event.target.closest('.dropdown-content')) {
+            dropdown.classList.remove('show');
+        }
+    });
 });
-document.getElementById("profileDropdown").addEventListener('mouseleave', hideDropdown);

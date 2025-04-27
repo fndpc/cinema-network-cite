@@ -1,40 +1,32 @@
-.order-details {
-    background-color: #f9f9f9; /* Светлый фон для выделения блока */
-    border: 1px solid #ddd; /* Легкая рамка вокруг блока */
-    border-radius: 8px; /* Закругленные углы */
-    padding: 20px; /* Внутренние отступы */
-    margin: 20px 0; /* Внешние отступы сверху и снизу */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Легкая тень для глубины */
+
+.center-container {
+    display: flex;
+    flex-direction: column; /* Располагает элементы в колонку */
+    align-items: center; /* Центрирует элементы по горизонтали */
+    text-align: center; /* Центрирует текст внутри блока */
 }
 
-.order-details h2 {
-    font-size: 24px; /* Размер шрифта заголовка */
-    color: #333; /* Цвет текста заголовка */
-    margin-bottom: 15px; /* Отступ снизу */
+h1 {
+    margin-bottom: 20px; /* Добавляет отступ снизу для заголовка */
 }
 
-.movie-info {
-    margin-bottom: 15px; /* Отступ снизу для блока с информацией о фильме */
+.order-button {
+    display: flex;
+    scale: 120%;
+    display: inline-block;
+    margin-top: 20px;
+    margin-left: 15px;
+    padding: 10px 20px;
+    background: linear-gradient(90deg, #0084ff, #003fb3); /* Яркий синий градиент */
+    color: #ffffff;
+    font-weight: bold; /* Жирный текст */
+    text-decoration: none;
+    border-radius: 5px;
+    background-size: 200% 100%; /* Увеличиваем размер градиента */
+    transition: background-position 0.5s ease; /* Плавный переход */
 }
 
-.movie-info h3 {
-    font-size: 20px; /* Размер шрифта для названия фильма */
-    color: #555; /* Цвет текста названия фильма */
-}
-
-.movie-info img {
-    max-width: 100%; /* Ограничение ширины изображения */
-    height: auto; /* Автоматическая высота для сохранения пропорций */
-    border-radius: 4px; /* Закругленные углы для изображения */
-    margin-top: 10px; /* Отступ сверху для изображения */
-}
-
-.order-details p {
-    font-size: 16px; /* Размер шрифта для параграфов */
-    color: #666; /* Цвет текста параграфов */
-    margin: 5px 0; /* Внешние отступы для параграфов */
-}
-
-.order-details strong {
-    color: #333; /* Цвет текста для выделенных элементов */
+.order-button:hover {
+    background-position: right; /* Перемещаем градиент вправо при наведении */
+    transition: background-position 0.5s ease; /* Плавный переход фона при наведении */
 }

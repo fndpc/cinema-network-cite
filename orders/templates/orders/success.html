@@ -1,26 +1,15 @@
 {% extends "home/template.html" %}
 {% load static %}
 
-{% block title %}Информация{% endblock %}
+{% block title %}Заказ{% endblock %}
 
 {% block styles %}
 <link rel="stylesheet" href="{% static 'orders/css/success.css' %}">
 {% endblock %}
 
 {% block main %}
-<h1>Ваш заказ {{ order.id }} успешно создан!</h1>
-<div class="movie-detail">
-    <div class="movie-poster">
-        <img src="{{ order.showtime.movie.image.url }}" alt="{{ order.movie.title }} Poster">
-    </div>
-
-    <div class="movie-info">
-    <h1>{{ order.movie.title }}</h1>
-    <p class="genre">Жанр: {{ order.movie.genre }}</p>
-    <p class="rating">Рейтинг: {{ order.movie.rating }}</p>
-    <p class="duration">Продолжительность: {{ order.movie.duration }}</p>
-    <p class="country">Страна: {{ order.movie.country }}</p>
-    </div>
-
+<div class="center-container">
+    <h1>Ваш заказ успешно создан!</h1>
+    <a href="{% url 'profile' me.id %}" class="order-button">Посмотреть заказ</a>
 </div>
 {% endblock %}

@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 from orders.models import Orders
 from showtimes.models import Showtimes
 
