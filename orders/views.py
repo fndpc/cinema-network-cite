@@ -2,8 +2,12 @@ from django.shortcuts import render
 from orders.models import Orders
 from showtimes.models import Showtimes
 
-def orders(request, movie_id, cinema_id, showtime_id):
-    order = Orders(showtime=Showtimes.objects.get(id=showtime_id), user=request.user)
-    order.save()
-    return render(request, 'orders/success.html', {'order': order})
+def orders(request):
+    if request.method == 'POST':
+        showtime = Showtimes.objects.get(pk = request.POST['showtime'])
+        user = request.user
+        order = Orders(showtime=showtime, user=user)
+        order.save()
+        return render(request, 'orders/success.html')
+    return render(request, 'orders/fail.html')
 

@@ -1,57 +1,61 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Получаем все блоки кинотеатров
     const cinemaBlocks = document.querySelectorAll('.cinema-block');
-    const selectedCinemaIdInput = document.getElementById('selectedCinemaId');
-    const buyTicketButton = document.getElementById('buyTicketButton');
-    const movieId = buyTicketButton.getAttribute('data-movie-id');
     const showtimeSelection = document.getElementById('showtimeSelection');
-    const showtimeBlocks = showtimeSelection.querySelectorAll('.showtime-block');
+    const selectedShowtimeId = document.getElementById('selectedShowrtimeId');
 
+    // Скрываем блок сеансов изначально
+    showtimeSelection.style.display = 'none';
+
+    // Добавляем обработчик события для каждого блока кинотеатра
     cinemaBlocks.forEach(block => {
         block.addEventListener('click', function() {
-            // Удаляем класс выделения у всех блоков
+            // Получаем ID выбранного кинотеатра
+            const selectedCinemaId = this.getAttribute('data-cinema-id');
+            const showtimeBlocks = document.querySelectorAll('.showtime-block');
+
+            // Скрываем все сеансы
+            showtimeSelection.style.display = 'none';
+
+            // Убираем выделение у всех блоков кинотеатров
             cinemaBlocks.forEach(b => b.classList.remove('selected'));
 
-            // Добавляем класс выделения к текущему блоку
+            // Выделяем выбранный блок кинотеатра
             this.classList.add('selected');
 
-            // Сохраняем ID выбранного кинотеатра
-            const cinemaId = this.getAttribute('data-cinema-id');
-            selectedCinemaIdInput.value = cinemaId;
-
-            // Отображаем сеансы для выбранного кинотеатра
-            showtimeSelection.style.display = 'block';
-            showtimeBlocks.forEach(showtimeBlock => {
-                if (showtimeBlock.getAttribute('data-cinema-id') === cinemaId && showtimeBlock.getAttribute('data-movie-id') === movieId) {
-                    showtimeBlock.style.display = 'block'; // Показываем только соответствующие сеансы
+            // Показываем только сеансы, связанные с выбранным кинотеатром
+            let hasShowtimes = false;
+            showtimeBlocks.forEach(showtime => {
+                if (showtime.getAttribute('data-cinema-id') === selectedCinemaId) {
+                    showtime.style.display = 'block';
+                    hasShowtimes = true;
                 } else {
-                    showtimeBlock.style.display = 'none'; // Скрываем остальные
+                    showtime.style.display = 'none';
                 }
             });
 
-            // Обновляем URL кнопки "Купить"
-            buyTicketButton.href = `/orders/${movieId}/${cinemaId}/`; // Формируем URL
+            // Если есть сеансы, показываем блок сеансов
+            if (hasShowtimes) {
+                showtimeSelection.style.display = 'block';
+            } else {
+                showtimeSelection.style.display = 'none';
+            }
         });
     });
 
-    showtimeBlocks.forEach(block => {
-        block.addEventListener('click', function() {
-            // Удаляем класс выделения у всех блоков
-            showtimeBlocks.forEach(b => b.classList.remove('selected'));
+    // Добавляем обработчик события для сеансов
+    const showtimeBlocks = document.querySelectorAll('.showtime-block');
+    showtimeBlocks.forEach(showtime => {
+        showtime.addEventListener('click', function() {
+            // Получаем ID выбранного сеанса
+            const selectedId = this.getAttribute('data-showtime-id');
+            selectedShowtimeId.value = selectedId;
 
-            // Добавляем класс выделения к текущему блоку
+            // Убираем выделение у всех блоков сеансов
+            showtimeBlocks.forEach(s => s.classList.remove('selected'));
+
+            // Выделяем выбранный блок сеанса
             this.classList.add('selected');
-
-            // Сохраняем ID выбранного сеанса
-            const showtimeId = this.getAttribute('data-showtime-id');
-            buyTicketButton.href = `/orders/${movieId}/${selectedCinemaIdInput.value}/${showtimeId}/`; // Обновляем URL с учетом сеанса
         });
-    });
-
-    buyTicketButton.addEventListener('click', function(event) {
-        // Проверяем, выбран ли кинотеатр и сеанс
-        if (!selectedCinemaIdInput.value || !document.querySelector('.showtime-block.selected')) {
-            event.preventDefault(); // Отменяем отправку формы
-            alert('Пожалуйста, выберите кинотеатр и сеанс перед покупкой билета.');
-        }
     });
 });

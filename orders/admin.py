@@ -3,4 +3,7 @@ from . models import Orders
 
 
 # Register your models here.
-admin.site.register(Orders)
+
+@admin.register(Orders)
+class OrdersAdmin(admin.ModelAdmin):
+    list_display = ['showtime', 'user',]

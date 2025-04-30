@@ -91,16 +91,18 @@ select:disabled {
 .my-button {
     scale: 120%;
     display: inline-block;
-    margin-top: 20px;
-    margin-left: 15px;
+    margin-top: 0px;
+    margin-left: 5px;
     padding: 10px 20px;
-    background: linear-gradient(90deg, #0084ff, #003fb3); /* Яркий синий градиент */
+    background: linear-gradient(90deg, #0091ff, #003fb3); /* Яркий синий градиент */
     color: #ffffff;
     font-weight: bold; /* Жирный текст */
-    text-decoration: none;
+    text-decoration: none; /* Убираем подчеркивание */
+    border: none; /* Убираем стандартную рамку кнопки */
     border-radius: 5px;
     background-size: 200% 100%; /* Увеличиваем размер градиента */
     transition: background-position 0.5s ease; /* Плавный переход */
+    cursor: pointer; /* Указатель при наведении */
 }
 
 .my-button:hover {

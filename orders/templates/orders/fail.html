@@ -1,0 +1,15 @@
+{% extends "home/template.html" %}
+{% load static %}
+
+{% block title %}Заказ{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'orders/css/success.css' %}">
+{% endblock %}
+
+{% block main %}
+<div class="center-container">
+    <h1>Ваш заказ не был создан :(</h1>
+    <h2>Обратитесь за помощью к администратору</h2>
+</div>
+{% endblock %}

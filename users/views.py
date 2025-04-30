@@ -15,7 +15,8 @@ def user_logout(request):
 
 def profile(request, id):
     if request.user.id == id:
-        return render(request, 'users/profile.html', {'id': id, 'orders': Orders.objects.filter(user=request.user)})
+        return render(request, 'users/profile.html', {'username': request.user.username,
+                                                      'orders': Orders.objects.filter(user=request.user)})
     return PermissionDenied()
 
 
