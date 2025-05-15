@@ -1,32 +1,247 @@
-
-.center-container {
-    display: flex;
-    flex-direction: column; /* Располагает элементы в колонку */
-    align-items: center; /* Центрирует элементы по горизонтали */
-    text-align: center; /* Центрирует текст внутри блока */
+/* Base styles */
+body {
+  background-color: #0a0a0a;
+  color: #f5f5f5;
+  font-family: "Roboto", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
 }
 
-h1 {
-    margin-bottom: 20px; /* Добавляет отступ снизу для заголовка */
+/* Status container */
+.status-container {
+  max-width: 800px;
+  margin: 5rem auto;
+  padding: 3rem;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+  animation: fadeIn 0.5s ease-out;
 }
 
-.order-button {
-    display: flex;
-    scale: 120%;
-    display: inline-block;
-    margin-top: 20px;
-    margin-left: 15px;
-    padding: 10px 20px;
-    background: linear-gradient(90deg, #0084ff, #003fb3); /* Яркий синий градиент */
-    color: #ffffff;
-    font-weight: bold; /* Жирный текст */
-    text-decoration: none;
-    border-radius: 5px;
-    background-size: 200% 100%; /* Увеличиваем размер градиента */
-    transition: background-position 0.5s ease; /* Плавный переход */
+/* Success container */
+.success-container {
+  background: linear-gradient(145deg, #151515, #1c1c1c);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.order-button:hover {
-    background-position: right; /* Перемещаем градиент вправо при наведении */
-    transition: background-position 0.5s ease; /* Плавный переход фона при наведении */
+.success-container::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(76, 175, 80, 0.1) 0%, rgba(76, 175, 80, 0) 70%);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+/* Error container */
+.error-container {
+  background: linear-gradient(145deg, #1c1515, #1c1c1c);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.error-container::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(244, 67, 54, 0.1) 0%, rgba(244, 67, 54, 0) 70%);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+/* Status icon */
+.status-icon {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 2rem;
+  font-size: 3.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.success-icon {
+  background: linear-gradient(135deg, #4caf50, #2e7d32);
+  box-shadow: 0 10px 30px rgba(76, 175, 80, 0.3);
+  animation: pulseSuccess 2s infinite;
+}
+
+.error-icon {
+  background: linear-gradient(135deg, #f44336, #c62828);
+  box-shadow: 0 10px 30px rgba(244, 67, 54, 0.3);
+  animation: pulseError 2s infinite;
+}
+
+/* Status title */
+.status-title {
+  font-size: 2.5rem;
+  margin: 0 0 1.5rem;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+}
+
+.success-title {
+  color: #4caf50;
+}
+
+.error-title {
+  color: #f44336;
+}
+
+/* Status message */
+.status-message {
+  font-size: 1.2rem;
+  color: #cccccc;
+  margin-bottom: 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Action button */
+.action-button {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.success-button {
+  background: linear-gradient(135deg, #4caf50, #2e7d32);
+  color: white;
+  box-shadow: 0 10px 20px rgba(76, 175, 80, 0.3);
+}
+
+.success-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(76, 175, 80, 0.4);
+}
+
+.error-button {
+  background: linear-gradient(135deg, #f44336, #c62828);
+  color: white;
+  box-shadow: 0 10px 20px rgba(244, 67, 54, 0.3);
+}
+
+.error-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(244, 67, 54, 0.4);
+}
+
+/* Home button */
+.home-button {
+  display: inline-block;
+  margin-top: 1.5rem;
+  color: #aaaaaa;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.home-button:hover {
+  color: #ffffff;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseSuccess {
+  0% {
+    box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(76, 175, 80, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(76, 175, 80, 0);
+  }
+}
+
+@keyframes pulseError {
+  0% {
+    box-shadow: 0 0 0 0 rgba(244, 67, 54, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(244, 67, 54, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(244, 67, 54, 0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .status-container {
+    margin: 3rem 1.5rem;
+    padding: 2rem;
+  }
+
+  .status-icon {
+    width: 100px;
+    height: 100px;
+    font-size: 3rem;
+  }
+
+  .status-title {
+    font-size: 2rem;
+  }
+
+  .status-message {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .status-container {
+    margin: 2rem 1rem;
+    padding: 1.5rem;
+  }
+
+  .status-icon {
+    width: 80px;
+    height: 80px;
+    font-size: 2.5rem;
+  }
+
+  .status-title {
+    font-size: 1.8rem;
+  }
+
+  .status-message {
+    font-size: 1rem;
+  }
+
+  .action-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
 }

@@ -14,16 +14,16 @@
 
 
 {% block main %}
-    <h1 class="active-movies-title">Кинотеатры</h1>
+    <h1 class="title-cinema">Кинотеатры</h1>
 
-    <div class="cinemas">
+    <div class="cinemas-cinema">
         {% for cinema in cinemas %}
-            <div class="cinema-card">
+            <div class="cinema-card-cinema">
                 {% if cinema.image %}
-                    <img src="{{ cinema.image.url }}" alt="{{ cinema.name }}" class="cinema-image" />
+                    <img src="{{ cinema.image.url }}" alt="{{ cinema.name }}" class="cinema-image-cinema" />
                 {% endif %}
-                <h2 class="cinema-title">{{ cinema.name }}</h2>
-                <p class="cinema-genre">Оценка: {{ cinema.rating }}</p>
+                <h2 class="cinema-title-cinema">{{ cinema.name }}</h2>
+                <p class="cinema-genre-cinema">Оценка: {{ cinema.rating }}</p>
                 <button class="map-button" data-coordinates="{{ cinema.coordinates }}">Показать на карте</button>
                 <!-- Модальное окно -->
                 <div id="myModal">

@@ -1,139 +1,253 @@
+/* Base styles */
+body {
+  background-color: #0a0a0a;
+  color: #f5f5f5;
+  font-family: 'Roboto', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* Content container */
+.content-template {
+  max-width: 1400px;
+  padding: 2rem;
+}
+
+/* Page title */
 h1 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-    text-align: center;
-    color: #ffffff;
-    font-weight: 500;
-    transition: font-weight 0.3s;
+  font-size: 2.8rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  color: #ffffff;
+  position: relative;
+  padding-bottom: 1rem;
+  font-weight: 700;
 }
 
+h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(135deg, #ff4d4d, #f9004d);
+  border-radius: 2px;
+}
+
+/* Date selection form */
 form {
-    margin-bottom: 20px;
-    text-align: center;
+  background: linear-gradient(145deg, #151515, #1c1c1c);
+  border-radius: 15px;
+  padding: 2rem;
+  margin-bottom: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-form label {
-    margin: 0 15px;
-    color: #ffffff;
+label {
+  font-size: 1.1rem;
+  color: #ffffff;
+  font-weight: 500;
 }
 
-form input[type="date"] {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background: #2c2c2c;
-    color: #ffffff;
-    transition: background 0.3s;
+input[type="date"] {
+  padding: 0.8rem 1.2rem;
+  border-radius: 30px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  font-size: 1rem;
+  min-width: 200px;
 }
 
-form input[type="date"]:focus {
-    background: #3c3c3c;
-    outline: none;
+input[type="date"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 77, 77, 0.5);
 }
 
-button {
-    padding: 10px 15px;
-    background: linear-gradient(90deg, #4a90e2, #50e3c2);
-    color: #ffffff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1em;
-    margin-left: 10px;
-    transition: background-color 0.3s;
+button[type="submit"] {
+  background: linear-gradient(135deg, #ff4d4d, #f9004d);
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 30px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-button:hover {
-    background-position: 100% 0; /* Перемещаем градиент при наведении */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+button[type="submit"]:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(249, 0, 77, 0.3);
 }
 
-
-form button:active {
-    transform: translateY(0);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
+/* Showtimes list */
 ul {
-    list-style-type: none;
-    padding: 0;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
-ul li {
-    background: #2c2c2c;
-    margin: 10px 0;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
-    transition: transform 0.3s, background 0.3s;
-}
-
-ul li:hover {
-    background: #3c3c3c;
-}
-
-strong {
-    color: #ffffff;
-}
-
-/* Стили для разделителей между показами */
-hr {
-    border: 0;
-    height: 1px;
-    background: #444444;
-    margin: 10px 0;
-}
-
-/* Стили для карточек фильмов */
+/* Movie card */
 .movie-card {
-    display: flex;
-    background: #1a1a1a; /* Фон карточки */
-    border-radius: 8px;
-    margin: 10px 0;
-    padding: 15px;
+  background: linear-gradient(145deg, #151515, #1c1c1c);
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  display: flex;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.5s ease-out forwards;
 }
 
+.movie-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(249, 0, 77, 0.2);
+}
 
+.movie-card:nth-child(2n) {
+  animation-delay: 0.1s;
+}
+
+.movie-card:nth-child(3n) {
+  animation-delay: 0.2s;
+}
+
+/* Movie poster */
 .movie-poster {
-    width: auto; /* Ширина постера */
-    height: 255px; /* Задайте фиксированную высоту для постера */
-    border-radius: 5px;
-    margin-right: 15px; /* Отступ справа от постера */
-    object-fit: cover; /* Сохраняет пропорции изображения и обрезает его, если необходимо */
+  width: 180px;
+  height: 270px;
+  object-fit: cover;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-
+/* Movie details */
 .movie-details {
-    flex: 1; /* Занимает оставшееся пространство */
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .movie-details h2 {
-    font-size: 1.8em;
-    margin: 0 0 10px 0; /* Отступы для заголовка */
-    color: #ffffff;
-    font-weight: bold;
-}
-
-.buy-button {
-    scale: 100%;
-    display: inline-block;
-    margin-top: 25px;
-    padding: 10px 20px;
-    background: linear-gradient(90deg, #0084ff, #003fb3); /* Яркий синий градиент */
-    color: #ffffff;
-    font-weight: bold; /* Жирный текст */
-    text-decoration: none;
-    border-radius: 5px;
-    background-size: 200% 100%; /* Увеличиваем размер градиента */
-    transition: background-position 0.5s ease; /* Плавный переход */
-}
-
-.buy-button:hover {
-    background-position: right; /* Перемещаем градиент вправо при наведении */
-    transition: background-position 0.5s ease; /* Плавный переход фона при наведении */
+  font-size: 1.8rem;
+  margin: 0 0 1rem;
+  color: #ffffff;
+  font-weight: 600;
 }
 
 .movie-details p {
-    margin: 5px 0; /* Отступы для параграфов */
-    color: #cccccc; /* Цвет текста для деталей */
+  margin: 0.5rem 0;
+  color: #cccccc;
+  font-size: 1rem;
+}
+
+.movie-details p strong {
+  color: #ffffff;
+  margin-right: 0.5rem;
+}
+
+/* Rating styling */
+.movie-details p:nth-child(3) {
+  color: #ff4d4d;
+  font-weight: bold;
+}
+
+/* Buy ticket button */
+.buy-button {
+  display: inline-block;
+  background: linear-gradient(135deg, #ff4d4d, #f9004d);
+  color: white;
+  text-decoration: none;
+  padding: 0.8rem 2rem;
+  border-radius: 30px;
+  font-weight: 500;
+  margin-top: 1.5rem;
+  align-self: flex-start;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.buy-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(249, 0, 77, 0.3);
+}
+
+/* Horizontal rule */
+hr {
+  display: none; /* Hide the horizontal rule as we're using margins and cards */
+}
+
+/* No showtimes message */
+p[style] {
+  font-size: 1.2rem;
+  margin: 3rem 0;
+  text-align: center;
+  color: #aaaaaa !important;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  h1 {
+    font-size: 2.3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .movie-card {
+    flex-direction: column;
+  }
+  
+  .movie-poster {
+    width: 100%;
+    height: 300px;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  form {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  input[type="date"] {
+    width: 100%;
+  }
+  
+  button[type="submit"] {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-template {
+    padding: 1rem;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  .movie-details h2 {
+    font-size: 1.5rem;
+  }
+  
+  .movie-poster {
+    height: 250px;
+  }
 }

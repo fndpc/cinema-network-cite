@@ -1,35 +1,85 @@
 {% extends "home/template.html" %}
 {% load static %}
 
-
-
 {% block title %}Информация{% endblock %}
-
 
 {% block styles %}
 <link rel="stylesheet" href="{% static 'info/css/info.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 {% endblock %}
 
 {% block main %}
-<section id="about">
-    <h2>О нас</h2>
-    <p>Сеть кинотеатров Cinema Park предлагает зрителям уникальный опыт просмотра фильмов в комфортной обстановке. Мы стремимся предоставить лучшие условия для наших гостей, включая современные технологии и широкий выбор фильмов.</p>
-</section>
+<div class="info-container">
+    <h1 class="info-title">О кинотеатре</h1>
+    
+    <section id="about" class="info-section">
+        <h2 class="section-title">О нас</h2>
+        <div class="section-content">
+            <p class="section-text">Сеть кинотеатров Cinema Park предлагает зрителям уникальный опыт просмотра фильмов в комфортной обстановке. Мы стремимся предоставить лучшие условия для наших гостей, включая современные технологии и широкий выбор фильмов.</p>
+            <p class="section-text">Наша миссия — создавать незабываемые впечатления от просмотра кино, сочетая инновационные технологии, комфорт и высокий уровень обслуживания. Мы постоянно развиваемся, чтобы предложить нашим зрителям самые современные и качественные услуги.</p>
+        </div>
+    </section>
 
-<section id="services">
-    <h2>Услуги</h2>
-    <ul>
-        <li>Показ фильмов в формате 2D и 3D</li>
-        <li>VIP-залы с повышенным комфортом</li>
-        <li>Кафе и бары с разнообразным меню</li>
-        <li>Проведение мероприятий и частных показов</li>
-    </ul>
-</section>
+    <section id="services" class="info-section">
+        <h2 class="section-title">Услуги</h2>
+        <div class="section-content">
+            <ul class="services-list">
+                <li class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <div class="service-text">Показ фильмов в формате 2D и 3D</div>
+                </li>
+                <li class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-couch"></i>
+                    </div>
+                    <div class="service-text">VIP-залы с повышенным комфортом</div>
+                </li>
+                <li class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="service-text">Кафе и бары с разнообразным меню</div>
+                </li>
+                <li class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="service-text">Проведение мероприятий и частных показов</div>
+                </li>
+            </ul>
+        </div>
+    </section>
 
-<section id="contact">
-    <h2>Контакты</h2>
-    <p>Телефон: +7 (123) 456-78-90</p>
-    <p>Email: info@cinemapark.ru</p>
-    <p>Адрес: г. Череповец, ул. Пионерская, д. 29</p>
-</section>
+    <section id="contact" class="info-section">
+        <h2 class="section-title">Контакты</h2>
+        <div class="section-content">
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-label">Телефон</div>
+                    <div class="contact-value">+7 (123) 456-78-90</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-label">Email</div>
+                    <div class="contact-value">info@cinemapark.ru</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-label">Адрес</div>
+                    <div class="contact-value">г. Череповец, ул. Пионерская, д. 29</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</div>
 {% endblock %}

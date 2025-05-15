@@ -1,7 +1,7 @@
 {% extends "home/template.html" %}
 {% load static %}
 
-{% block title %}Главная{% endblock %}
+{% block title %}Фильмы{% endblock %}
 
 {% block styles %}
     <link rel="stylesheet" href="{% static 'movies/css/movies.css' %}">
@@ -30,11 +30,7 @@
         </div>
 
         <a href="{% url 'movies' %}" class="red-button">Сбросить</a>
-
     </form>
-
-  
-    
 
     <div class="movie-container">
         {% for movie in object_list %}

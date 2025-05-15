@@ -1,152 +1,343 @@
-/* Приведение к единому стилю */
-html {
-    overflow-y: scroll;
+/* Base styles */
+body {
+  background-color: #0a0a0a;
+  color: #f5f5f5;
+  font-family: 'Roboto', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
 }
 
+/* Movies page container */
+.content-template {
+  max-width: 1400px; /* Increased width from 1200px */
+  padding: 2rem;
+}
 
+/* Page title */
+.active-movies-title {
+  font-size: 2.8rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  color: #ffffff;
+  position: relative;
+  padding-bottom: 1rem;
+  font-weight: 700;
+}
 
+.active-movies-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(135deg, #ff4d4d, #f9004d);
+  border-radius: 2px;
+}
+
+/* Search form */
+.search-form {
+  background: linear-gradient(145deg, #151515, #1c1c1c);
+  border-radius: 15px;
+  padding: 2rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.search-input {
+  grid-column: 1;
+  grid-row: 1;
+  padding: 1rem 1.5rem;
+  border-radius: 30px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 77, 77, 0.5);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.search-button {
+  grid-column: 2;
+  grid-row: 1;
+  background: linear-gradient(135deg, #ff4d4d, #f9004d);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.search-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(249, 0, 77, 0.3);
+}
+
+.checkbox-group {
+  grid-column: 1;
+  grid-row: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  color: #cccccc;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+}
+
+.checkbox-group label:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.checkbox-group input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  margin-right: 8px;
+  position: relative;
+  cursor: pointer;
+}
+
+.checkbox-group input[type="checkbox"]:checked {
+  background: #ff4d4d;
+}
+
+.checkbox-group input[type="checkbox"]:checked::after {
+  content: '✓';
+  position: absolute;
+  color: white;
+  font-size: 14px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.red-button {
+  grid-column: 2;
+  grid-row: 2;
+  background: transparent;
+  color: #ff4d4d;
+  border: 2px solid #ff4d4d;
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-block;
+}
+
+.red-button:hover {
+  background: rgba(255, 77, 77, 0.1);
+  transform: translateY(-3px);
+}
+
+/* Movie grid */
 .movie-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px; /* Отступы вокруг контейнера */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2.5rem;
+  margin: 0 auto;
 }
 
 .movie-card {
-    background: #1a1a1a;
-    border-radius: 8px;
-    /* box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1); */
-    border-color: snow;
-    padding: 15px;
-    width: 250px;
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
+  background: linear-gradient(145deg, #151515, #1c1c1c);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  position: relative;
+  height: 100%;
 }
 
 .movie-card:hover {
-    transform: scale(1.05);
-    /* box-shadow: 0 6px 30px rgba(255, 255, 255, 0.2); */
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(249, 0, 77, 0.2);
+}
+
+.movie-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .movie-image {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
+  width: 100%;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.movie-card:hover .movie-image {
+  transform: scale(1.05);
 }
 
 .movie-title {
-    font-size: 1.5em;
-    margin: 10px 0;
-    color: #ffffff;
+  font-size: 1.3rem;
+  padding: 1.2rem 1.2rem 0.5rem;
+  margin: 0;
+  color: #ffffff;
+  font-weight: 600;
 }
-
-
 
 .movie-genre,
 .movie-country,
 .movie-rating {
-    font-size: 1em;
-    margin: 5px 0;
-    color: #cccccc;
+  padding: 0 1.2rem;
+  margin: 0.3rem 0;
+  font-size: 0.95rem;
+  color: #aaaaaa;
 }
 
-.movie-link {
-    text-decoration: none;
-    color: inherit;
-    transition: color 0.3s;
+.movie-rating {
+  padding-bottom: 1.2rem;
+  color: #ff4d4d;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
 }
 
-.movie-link:hover {
-    color: #ffffff;
+.movie-rating::before {
+  content: '★';
+  margin-right: 5px;
 }
 
-form {
-    display: flex;
-    align-items: center; /* Центрирование элементов по вертикали */
-    justify-content: center; /* Центрирование элементов по горизонтали */
-    flex-wrap: wrap; /* Позволяет элементам переноситься на новую строку при необходимости */
-    margin: 20px 0;
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .content-template {
+    padding: 1.5rem;
+  }
+  
+  .active-movies-title {
+    font-size: 2.3rem;
+  }
 }
 
-.search-input {
-    padding: 10px;
-    border: 1px solid #cccccc;
-    border-radius: 4px;
-    width: 200px; /* Уменьшена ширина для компактности */
-    font-size: 1em;
-    transition: border-color 0.3s;
-    margin-right: 10px; /* Отступ справа для разделения с кнопкой */
-}
-.search-input:focus {
-    border-color: #50e3c2; /* Цвет рамки при фокусе */
-    outline: none;
-}
-
-
-
-
-
-.search-button {
-    scale: 120%;
-    display: inline-block;
-    margin-top: 0px;
-    margin-left: 5px;
-    padding: 10px 20px;
-    background: linear-gradient(90deg, #0091ff, #003fb3); /* Яркий синий градиент */
-    color: #ffffff;
-    font-weight: bold; /* Жирный текст */
-    text-decoration: none; /* Убираем подчеркивание */
-    border: none; /* Убираем стандартную рамку кнопки */
-    border-radius: 5px;
-    background-size: 200% 100%; /* Увеличиваем размер градиента */
-    transition: background-position 0.5s ease; /* Плавный переход */
-    cursor: pointer; /* Указатель при наведении */
-}
-
-.search-button:hover {
-    background-position: right; /* Перемещаем градиент вправо при наведении */
-    transition: background-position 0.5s ease; /* Плавный переход фона при наведении */
+@media (max-width: 768px) {
+  .search-form {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+  }
+  
+  .search-input {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  
+  .search-button {
+    grid-column: 1;
+    grid-row: 2;
+    margin-top: 1rem;
+  }
+  
+  .checkbox-group {
+    grid-column: 1;
+    grid-row: 3;
+    margin-top: 1rem;
+  }
+  
+  .red-button {
+    grid-column: 1;
+    grid-row: 4;
+    margin-top: 1rem;
+  }
+  
+  .movie-container {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
 }
 
-
-
-
-
-
-
-
-.red-button {
-    display: inline-block;
-    margin-top: 0px;
-    margin-left: 5px;
-    padding: 10px 20px;
-    background: linear-gradient(90deg, #ff3d00, #b30000);/* Яркий синий градиент */
-    color: #ffffff;
-    font-weight: bold; /* Жирный текст */
-    text-decoration: none; /* Убираем подчеркивание */
-    border: none; /* Убираем стандартную рамку кнопки */
-    border-radius: 5px;
-    background-size: 200% 100%; /* Увеличиваем размер градиента */
-    transition: background-position 0.5s ease; /* Плавный переход */
-    cursor: pointer; /* Указатель при наведении */
+@media (max-width: 480px) {
+  .content-template {
+    padding: 1rem;
+  }
+  
+  .active-movies-title {
+    font-size: 1.8rem;
+  }
+  
+  .search-form {
+    padding: 1.5rem;
+  }
+  
+  .checkbox-group {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .movie-container {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1rem;
+  }
+  
+  .movie-title {
+    font-size: 1.1rem;
+    padding: 1rem 1rem 0.3rem;
+  }
+  
+  .movie-genre,
+  .movie-country,
+  .movie-rating {
+    padding: 0 1rem;
+    font-size: 0.85rem;
+  }
+  
+  .movie-rating {
+    padding-bottom: 1rem;
+  }
 }
 
-.red-button:hover {
-    background-position: right; /* Перемещаем градиент вправо при наведении */
-    transition: background-position 0.5s ease; /* Плавный переход фона при наведении */
+/* Animation effects */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-
-
-
-.checkbox-group {
-    display: flex;
-    align-items: center; /* Центрирование чекбоксов по вертикали */
-    margin-left: 10px; /* Отступ слева для отделения от кнопки */
+.movie-card {
+  animation: fadeIn 0.5s ease-out forwards;
 }
 
-.checkbox-group label {
-    margin-right: 10px; /* Отступ между чекбоксами */
-    color: #ffffff; /* Цвет текста для чекбоксов */
+.movie-card:nth-child(2n) {
+  animation-delay: 0.1s;
+}
+
+.movie-card:nth-child(3n) {
+  animation-delay: 0.2s;
+}
+
+.movie-card:nth-child(4n) {
+  animation-delay: 0.3s;
 }

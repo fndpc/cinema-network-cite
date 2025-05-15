@@ -4,6 +4,7 @@ from showtimes.models import Showtimes
 
 def orders(request):
     if request.method == 'POST':
+        print(f"-------------------------{request.POST['showtime']}------------")
         showtime = Showtimes.objects.get(pk = request.POST['showtime'])
         user = request.user
         order = Orders(showtime=showtime, user=user)
