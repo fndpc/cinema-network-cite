@@ -14,4 +14,4 @@
    login: admin
    pass: 12345
 
-Страница админки находится по адресу localhost/admin
+Страница админки находится по адресу localhost:8000/admin
