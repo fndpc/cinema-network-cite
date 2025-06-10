@@ -107,6 +107,7 @@ AUTH_PASSWORD_VALIDATORS = [
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Локализаця и время
 LANGUAGE_CODE = os.getenv('LANGUAGE_CODE')
@@ -114,7 +115,9 @@ TIME_ZONE = os.getenv('TIME_ZONE')
 USE_I18N = True
 USE_TZ = True
 
-
+# ТГ бот
+BOT_TOKEN=os.getenv('BOT_TOKEN')
+CHAT_ID=os.getenv('CHAT_ID')
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
