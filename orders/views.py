@@ -3,9 +3,6 @@ from orders.models import Orders
 from urllib.parse import quote
 from showtimes.models import Showtimes
 from telegram_bot.bot import send_notiflication
-import requests
-
-
 
 def orders(request):
 

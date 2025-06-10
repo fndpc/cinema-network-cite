@@ -1,9 +1,11 @@
 import telebot
+import threading
 from urllib.parse import quote
 from django.conf import settings
 import requests
 
-API_TOKEN = "8150817803:AAFuhvfZ_udCiLU_IVUGZkTmOk4VdFR3cz4"
+
+API_TOKEN = settings.BOT_TOKEN
 
 bot = telebot.TeleBot(API_TOKEN)
 
@@ -20,6 +22,8 @@ def send_notiflication(order):
     url = f"https://api.telegram.org/bot{settings.BOT_TOKEN}/sendMessage?chat_id={settings.CHAT_ID}&text={message}"
     print(requests.get(url))
 
+def run_bot():
+    bot.infinity_polling()
 
-
-# bot.infinity_polling()
+bot_thread = threading.Thread(target=run_bot, daemon=True)
+bot_thread.start()
