@@ -1,0 +1,23 @@
+{% extends "home/template.html" %}
+{% load static %}
+
+{% block title %}Заказ{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'orders/css/success.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+{% endblock %}
+
+{% block main %}
+<div class="status-container success-container">
+    <div class="status-icon success-icon">
+        <i class="fas fa-check"></i>
+    </div>
+    <h1 class="status-title success-title">Заказ успешно создан!</h1>
+    <p class="status-message">Ваш билет готов. Вы можете просмотреть детали заказа в своем профиле.</p>
+    <a href="{% url 'profile' me.id %}" class="action-button success-button">Посмотреть заказ</a>
+    <div>
+        <a href="{% url 'home' %}" class="home-button">Вернуться на главную</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "home/template.html" %}
+{% load static %}
+
+{% block title %}Кинотеатры{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'cinemas/css/cinemas.css' %}">
+{% endblock %}
+    
+    
+{% block head %}
+    <script src="https://api-maps.yandex.ru/v3/?apikey=b2310e41-1034-4729-85de-466e50427a08&lang=ru_RU"></script>
+{% endblock %}
+
+
+{% block main %}
+    <h1 class="title-cinema">Кинотеатры</h1>
+
+    <div class="cinemas-cinema">
+        {% for cinema in cinemas %}
+            <div class="cinema-card-cinema">
+                {% if cinema.image %}
+                    <img src="{{ cinema.image.url }}" alt="{{ cinema.name }}" class="cinema-image-cinema" />
+                {% endif %}
+                <h2 class="cinema-title-cinema">{{ cinema.name }}</h2>
+                <p class="cinema-genre-cinema">Оценка: {{ cinema.rating }}</p>
+                <button class="map-button" data-coordinates="{{ cinema.coordinates }}">Показать на карте</button>
+                <!-- Модальное окно -->
+                <div id="myModal">
+                    <div id="modalContent">
+                        <span class="close">&times;</span>
+                        <div id="map" class='map'></div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    
+    <script src="{% static 'cinemas/js/map.js' %}"></script>
+{% endblock %}

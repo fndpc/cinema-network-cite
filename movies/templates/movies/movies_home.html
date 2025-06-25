@@ -1,0 +1,50 @@
+{% extends "home/template.html" %}
+{% load static %}
+
+{% block title %}Фильмы{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'movies/css/movies.css' %}">
+{% endblock %}
+
+{% block main %}
+    <h1 class="active-movies-title">Активные фильмы</h1>
+
+    <form action="{% url 'movies' %}" method="get" class="search-form">
+        <input type="search" name="search" placeholder="Введите название" class="search-input">
+        <button type="submit" class="search-button">Найти</button>
+    
+        <div class="checkbox-group">
+            <label>
+                <input type="checkbox" name="genre" value="Ужасы"> Ужасы
+            </label>
+            <label>
+                <input type="checkbox" name="genre" value="Драма"> Драма
+            </label>
+            <label>
+                <input type="checkbox" name="genre" value="Триллер"> Триллер
+            </label>
+            <label>
+                <input type="checkbox" name="genre" value="Фэнтези"> Фэнтези
+            </label>
+        </div>
+
+        <a href="{% url 'movies' %}" class="red-button">Сбросить</a>
+    </form>
+
+    <div class="movie-container">
+        {% for movie in object_list %}
+            <div class="movie-card">
+                <a href="{{ movie.get_absolute_url }}" class="movie-link">
+                    {% if movie.image %}
+                        <img src="{{ movie.image.url }}" alt="{{ movie.title }}" class="movie-image" />
+                    {% endif %}
+                    <h2 class="movie-title">{{ movie.title }}</h2>
+                    <p class="movie-genre">Жанр: {{ movie.genre }}</p>
+                    <p class="movie-country">Страна: {{ movie.country }}</p>
+                    <p class="movie-rating">Рейтинг: {{ movie.rating }}</p>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,132 @@
+{% extends "home/template.html" %}
+{% load static %}
+
+{% block title %}Главная{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'home/css/home_page.css' %}">
+{% endblock %}
+
+{% block main %}
+    <!-- Hero Section -->
+<div class="container">
+    <section class="hero-home">
+        <div class="hero-content-home">
+            <h1 class="title-home">CinemaПарк</h1>
+            <p class="hero-subtitle-home">Погрузитесь в мир кино</p>
+            <div class="hero-buttons-home">
+                <a href="{% url 'movies' %}" class="hero-button-home primary-home">Смотреть фильмы</a>
+                <a href="{% url 'showtimes' %}" class="hero-button-home secondary-home">Расписание</a>
+            </div>
+        </div>
+        <div class="hero-overlay-home"></div>
+    </section>
+
+    <!-- Featured Movie -->
+    <section class="featured-home">
+        <div class="featured-label-home">Премьера</div>
+        <div class="featured-content-home">
+            <div class="featured-info-home">
+                <h2 class="featured-title-home">Откройте для себя новинки кинематографа</h2>
+                <p class="featured-description-home">CinemaПарк — это сеть современных кинотеатров, предлагающая широкий выбор фильмов, удобные залы и комфортные условия для просмотра.</p>
+                <a href="{% url 'movies' %}" class="featured-button-home">Все фильмы</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-home">
+        <h2 class="section-title-home">Наши услуги</h2>
+        <div class="services-grid-home">
+            <div class="service-card-home">
+                <div class="service-icon-home">
+                    <i class="fas fa-film"></i>
+                </div>
+                <h3 class="service-title-home">Показ новинок кино</h3>
+                <p class="service-description-home">Премьеры мировых блокбастеров и авторского кино</p>
+            </div>
+            <div class="service-card-home">
+                <div class="service-icon-home">
+                    <i class="fas fa-couch"></i>
+                </div>
+                <h3 class="service-title-home">Комфортабельные залы</h3>
+                <p class="service-description-home">Удобные кресла и современное оборудование</p>
+            </div>
+            <div class="service-card-home">
+                <div class="service-icon-home">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <h3 class="service-title-home">Кафе и бары</h3>
+                <p class="service-description-home">Разнообразное меню и напитки на любой вкус</p>
+            </div>
+            <div class="service-card-home">
+                <div class="service-icon-home">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3 class="service-title-home">Специальные предложения</h3>
+                <p class="service-description-home">Выгодные условия для групп и постоянных клиентов</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Movies Section -->
+    <section class="popular-movies-home">
+        <div class="section-header-home">
+            <h2 class="section-title-home">Популярные новинки</h2>
+            <a href="{% url 'movies' %}" class="view-all-home">Смотреть все <i class="fas fa-arrow-right"></i></a>
+        </div>
+        
+        <div class="movie-container-home">
+            {% for movie in object_list %}
+                <article class="movie-card-home">
+                    <div class="movie-poster-wrapper-home">
+                        <a href="{{ movie.get_absolute_url }}" class="movie-link-home" aria-label="{{ movie.title }}">
+                            {% if movie.image %}
+                                <img src="{{ movie.image.url }}" alt="{{ movie.title }}" class="movie-image-home" />
+                            {% endif %}
+                            <div class="movie-overlay-home">
+                                <div class="movie-rating-badge-home">{{ movie.rating }}</div>
+                                <div class="movie-action-home">Подробнее</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="movie-info-home">
+                        <h3 class="movie-title-home">{{ movie.title }}</h3>
+                        <div class="movie-meta-home">
+                            <p class="movie-genre-home">{{ movie.genre }}</p>
+                            <p class="movie-country-home">{{ movie.country }}</p>
+                        </div>
+                    </div>
+                </article>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Social Media Section -->
+    <!-- <section class="social-home">
+        <div class="social-content-home">
+            <h2 class="social-title-home">Следите за нашими новинками!</h2>
+            <p class="social-description-home">Подписывайтесь на наши социальные сети и будьте в курсе всех событий и акций.</p>
+            <div class="social-icons-home">
+                <a href="#" class="social-icon-home"><i class="fab fa-vk"></i></a>
+                <a href="#" class="social-icon-home"><i class="fab fa-telegram"></i></a>
+                <a href="#" class="social-icon-home"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon-home"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Newsletter Section -->
+    <!-- <section class="newsletter-home">
+        <div class="newsletter-content-home">
+            <h2 class="newsletter-title-home">Подпишитесь на рассылку</h2>
+            <p class="newsletter-description-home">Получайте информацию о новых фильмах и специальных предложениях</p>
+            <form class="newsletter-form-home">
+                <input type="email" placeholder="Ваш email" class="newsletter-input-home" required>
+                <button type="submit" class="newsletter-button-home">Подписаться</button>
+            </form>
+        </div>
+    </section> -->
+</div>
+
+{% endblock %}

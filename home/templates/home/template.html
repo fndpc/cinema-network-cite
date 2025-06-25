@@ -1,0 +1,126 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru" class="html-template">
+    <head class="head-template">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="referrer" content="origin-when-cross-origin" />
+        <title>{% block title %}CinemaПарк{% endblock %}</title>
+        <link rel="stylesheet" href="{% static 'home/css/template.css' %}">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="icon" href="{% static 'logo.png' %}" type="image/x-icon">
+
+        {% block styles %}
+        {% endblock %}
+
+        {% block head %}
+        {% endblock %}
+    </head>
+
+    <body class="body-template">
+        <header class="header-template">
+            <div class="logo-template">
+                <a href="{% url 'home' %}" class="logo-link-template">
+                    <i class="fas fa-film logo-icon-template"></i>
+                    <span class="logo-text-template">CinemaПарк</span>
+                </a>
+            </div>
+            
+            <div class="navbar-template">
+                <a href="{% url 'home' %}" class="nav-link-template">Главная</a>
+                <a href="{% url 'movies' %}" class="nav-link-template">Фильмы</a>
+                <a href="{% url 'cinemas' %}" class="nav-link-template">Кинотеатры</a>
+                <a href="{% url 'about' %}" class="nav-link-template">О нас</a>
+                <a href="{% url 'showtimes' %}" class="nav-link-template">Расписание</a>
+            </div>
+            
+            <div class="nav-right-template">
+                <div class="search-template">
+                    <i class="fas fa-search search-icon-template" id="searchToggle"></i>
+                    <div class="search-form-template" id="searchForm">
+                        <input type="text" placeholder="Поиск фильмов..." class="search-input-template">
+                        <button type="submit" class="search-button-template">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="dropdown-template">
+                    <i class="fa-regular fa-user user-icon-template" onclick="toggleDropdown()"></i>
+                    <div class="dropdown-content-template" id="profileDropdown">
+                        {% if me.is_anonymous %}
+                        <a href="{% url 'login' %}" class="dropdown-link-template">
+                            <i class="fas fa-sign-in-alt dropdown-icon-template"></i> Войти
+                        </a>
+                        <a href="{% url 'register' %}" class="dropdown-link-template">
+                            <i class="fas fa-user-plus dropdown-icon-template"></i> Регистрация
+                        </a>
+                        {% else %}
+                        <a href="{% url 'profile' me.id %}" class="dropdown-link-template">
+                            <i class="fas fa-user dropdown-icon-template"></i> {{me.username}}
+                        </a>
+                        <a href="{% url 'logout' %}" class="dropdown-link-template">
+                            <i class="fas fa-sign-out-alt dropdown-icon-template"></i> Выйти
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="navbar-mobile-toggle-template" id="navbarToggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </header>
+
+        <main class="content-template">
+            {% block main %}
+            <!-- Содержимое страницы будет здесь -->
+            {% endblock %}
+        </main>
+
+        <footer class="footer-template">
+            <div class="footer-content-template">
+                <div class="footer-links-template">
+                    <div class="footer-section-template">
+                        <h3 class="footer-heading-template">О нас</h3>
+                        <ul class="footer-list-template">
+                            <li><a href="{% url 'about' %}" class="footer-link-template">О компании</a></li>
+                            <li><a href="#" class="footer-link-template">Новости</a></li>
+                            <li><a href="#" class="footer-link-template">Вакансии</a></li>
+                            <li><a href="#" class="footer-link-template">Контакты</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section-template">
+                        <h3 class="footer-heading-template">Информация</h3>
+                        <ul class="footer-list-template">
+                            <li><a href="#" class="footer-link-template">Правила кинотеатра</a></li>
+                            <li><a href="#" class="footer-link-template">Акции и скидки</a></li>
+                            <li><a href="#" class="footer-link-template">Подарочные карты</a></li>
+                            <li><a href="#" class="footer-link-template">Часто задаваемые вопросы</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section-template">
+                        <h3 class="footer-heading-template">Следите за нами</h3>
+                        <div class="footer-social-template">
+                            <a href="#" class="social-icon-template"><i class="fab fa-vk"></i></a>
+                            <a href="#" class="social-icon-template"><i class="fab fa-telegram"></i></a>
+                            <a href="#" class="social-icon-template"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-icon-template"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom-template">
+                    <p class="copyright-template">© 2024 CinemaПарк. Все права защищены.</p>
+                </div>
+            </div>
+        </footer>
+
+        <script src="{% static 'home/js/template.js' %}"></script>
+    </body>
+</html>

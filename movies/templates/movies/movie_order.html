@@ -1,0 +1,50 @@
+{% extends "home/template.html" %}
+{% load static %}
+
+{% block title %}Покупка билета{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'movies/css/order.css' %}">
+{% endblock %}
+
+{% block head %}
+<script src="{% static 'movies/js/order.js' %}"></script>
+{% endblock %}
+
+{% block main %}
+<form action="{% url 'orders' %}" method="post" class="form-movie-order" id="orderForm">
+    {% csrf_token %}
+    
+    <h2>1. Фильм:</h2>
+    <div class="movie-block-movie-order" data-movie-id="{{ movie.id }}">
+        <img src="{{ movie.image.url }}" class="movie-image-movie-order">
+        <div class="movie-details-movie-order">
+            <p class="movie-title-movie-order">{{ movie.title }}</p>
+            <p class="movie-description-movie-order">{{ movie.description }}</p>
+        </div>
+    </div>
+
+    <h2>2. Выберите кинотеатр: <span class="error-message" id="cinemaError" style="color: red; display: none;">Пожалуйста, выберите кинотеатр</span></h2>
+    <div id="cinemaSelection-movie-order" class="cinema-selection-movie-order">
+        {% for cinema in cinemas %}
+            <div class="cinema-block-movie-order" data-cinema-id="{{ cinema.id }}">
+                <img src="{{ cinema.image.url }}" class="cinema-image-movie-order" alt="{{ cinema.name }}">
+                <p>{{ cinema.name }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+    <h2>3. Выберите сеанс: <span class="error-message" id="showtimeError" style="color: red; display: none;">Пожалуйста, выберите сеанс</span></h2>
+    <input type="hidden" id="selectedShowrtimeId" value="" name="showtime">
+    <div id="showtimeSelection-movie-order" class="showtime-selection-movie-order" style="display: none;">
+        {% for showtime in showtimes %}
+            <div class="showtime-block-movie-order" data-showtime-id="{{ showtime.id }}" data-cinema-id="{{ showtime.cinema.id }}" data-movie-id="{{ showtime.movie.id }}">
+                <p>{{ showtime.time|date:"j F" }} - {{ showtime.price }} руб.</p>
+            </div>
+        {% endfor %}
+    </div>
+
+    <h2>4. Купить билет:</h2>
+    <button type="submit" class="buy-button-movie-order">Купить</button>
+</form>
+{% endblock %}
