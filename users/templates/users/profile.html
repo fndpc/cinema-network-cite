@@ -1,0 +1,70 @@
+{% extends "home/template.html" %}
+{% load static %}
+
+{% block title %}Профиль{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'users/css/profile.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+{% endblock %}
+
+{% block main %}
+<div class="profile-container">
+    <div class="profile-header">
+        <div class="profile-avatar">
+            {{ username|first|upper }}
+        </div>
+        <div class="profile-info">
+            <h1 class="profile-title">{{ username }}</h1>
+            <p class="profile-subtitle">Участник с {{ user.date_joined|date:"F Y" }}</p>
+            
+            <div class="profile-stats">
+                <div class="stat-item">
+                    <p class="stat-value">{{ orders|length }}</p>
+                    <p class="stat-label">Билетов</p>
+                </div>
+                <div class="stat-item">
+                    <p class="stat-value">{{ user.last_login|date:"d.m.Y" }}</p>
+                    <p class="stat-label">Последний вход</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="orders-section">
+        <h2 class="section-title">Ваши заказы</h2>
+        
+        {% if orders %}
+            <ul class="order-list">
+                {% for order in orders %}
+                    <li class="order-item">
+                        <h3 class="order-movie">{{ order.showtime.movie.title }}</h3>
+                        <div class="order-details">
+                            <div class="order-detail">
+                                <span class="detail-label">Время:</span>
+                                <span class="detail-value">{{ order.showtime.time|date:"d.m.Y H:i" }}</span>
+                            </div>
+                            <div class="order-detail">
+                                <span class="detail-label">Кинотеатр:</span>
+                                <span class="detail-value">{{ order.showtime.cinema.name }}</span>
+                            </div>
+                            <div class="order-detail">
+                                <span class="detail-label">Зал:</span>
+                                <span class="detail-value">{{ order.showtime.hall.name }}</span>
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <div class="empty-orders">
+                <div class="empty-orders-icon">
+                    <i class="fas fa-ticket-alt"></i>
+                </div>
+                <p>У вас пока нет заказов. Самое время выбрать фильм!</p>
+                <a href="{% url 'movies' %}" class="submit-button">Смотреть фильмы</a>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,187 @@
+[33mcommit 64e79f87f208811415967118569c0152895dc7af[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: fndpc <cherryyt681@gmail.com>
+Date:   Tue Jun 10 14:21:36 2025 +0300
+
+    Удалить .env из репозитория и добавить в .gitignore
+
+[33mcommit e787b1ccd34007719e0d8eab0ba1b5bd662597a1[m
+Author: fndpc <cherryyt681@gmail.com>
+Date:   Tue Jun 10 14:16:37 2025 +0300
+
+    Update .gitignore
+
+[33mcommit 4f8bb72ca3cf5fe629f2f32c44a0d626aba5969d[m
+Merge: 8c54284 370bbdc
+Author: fndpc <cherryyt681@gmail.com>
+Date:   Tue Jun 10 14:13:41 2025 +0300
+
+    Merge https://github.com/fndpc/cinema-network-cite
+
+[33mcommit 370bbdcc89ba6d180daedad896435ba72891daf9[m
+Author: who <165575365+fndpc@users.noreply.github.com>
+Date:   Tue Jun 10 13:16:23 2025 +0300
+
+    Update README.md
+
+[33mcommit 8c542849293b4b02e996b24bdc7bf3e2c27d32bb[m
+Author: fndpc <cherryyt681@gmail.com>
+Date:   Fri May 30 11:35:36 2025 +0300
+
+    update db
+
+[33mcommit f975688b645d755b1b1609f4eb373c5254457faa[m
+Author: who <165575365+fndpc@users.noreply.github.com>
+Date:   Thu May 15 22:12:25 2025 +0300
+
+    Update README.md
+
+[33mcommit 75e4ef64fa13afb2f28197d639a5e44f50d1b415[m
+Author: fndpc <cherryyt681@gmail.com>
+Date:   Thu May 15 22:09:31 2025 +0300
+
+    update readme
+
+[33mcommit 25669295db15b27246f167133b0d4ffcd8290b2e[m
+Author: fndpc <cherryyt681@gmail.com>
+Date:   Thu May 15 22:04:29 2025 +0300
+
+    new crazy design
+
+[33mcommit bac6684e493170638bd394ce4810adf68972cea7[m
+Merge: 400acdd 28e638b
+Author: fndpc <cherryyt681@gmail.com>
+Date:   Thu May 1 13:35:56 2025 +0300
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit 400acdd931e28b306235d3179954853f1f3de7c1[m
+Author: fndpc <cherryyt681@gmail.com>
+Date:   Thu May 1 13:33:57 2025 +0300
+
+    1
+
+[33mcommit 28e638b55adb3457e506c638255c7c31cd4da479[m
+Author: who <165575365+fndpc@users.noreply.github.com>
+Date:   Thu May 1 13:07:31 2025 +0300
+
+    Update README.md
+
+[33mcommit 611b1b4b40440bb8a7559fcc31c30fb8b979705c[m
+Author: who <165575365+fndpc@users.noreply.github.com>
+Date:   Thu May 1 11:49:19 2025 +0300
+
+    Update README.md
+
+[33mcommit 4b362a3dcdce45f046c9e38934a0ef864c670f90[m
+Author: fndpc <cherryyt681@gmail.com>
+Date:   Wed Apr 30 15:02:04 2025 +0300
+
+    commit again
+
+[33mcommit 92173feb747e7b08df9868f442e9ca280b4c65e5[m
+Author: fndpc <cherryyt681@gmail.com>
+Date:   Sun Apr 27 23:26:16 2025 +0300
+
+    remake registration, added profile page, changed styles
+
+[33mcommit 0c2be7a77215ae130da58c3165f2232aa689f928[m
+Author: fndpc <cherryyt681@gmail.com>
+Date:   Sun Apr 27 16:06:24 2025 +0300
+
+    added YMaps to Cinema-page and changed css styles
+
+[33mcommit 5b06f5277caf5723561281a73c57e7301ea96835[m
+Author: fndpc <cherryyt681@gmail.com>
+Date:   Fri Apr 18 18:02:44 2025 +0300
+
+    delete dump and dockerfile from repo
+
+[33mcommit 3a3195cfdeed17ed71afdda197c9b3d7843715d5[m
+Author: fndpc <cherryyt681@gmail.com>
+Date:   Fri Apr 18 17:58:02 2025 +0300
+
+    add readme
+
+[33mcommit db3835d8f7ea2f00abea8ae40e50ffeee8767228[m
+Author: fndpc <cherryyt681@gmail.com>
+Date:   Fri Apr 18 17:55:52 2025 +0300
+
+    add readme
+
+[33mcommit 3aa0172b5d366a88c2bf413a9ae6ab6c55befda4[m
+Author: fndpc <cherryyt681@gmail.com>
+Date:   Fri Apr 18 17:51:24 2025 +0300
+
+    add showtimes page
+
+[33mcommit 3894a08401fcb88a30b4ba966a7ddb971c4dd898[m
+Author: unknown <cherryyt681@gmail.com>
+Date:   Thu Apr 17 22:27:45 2025 +0300
+
+    fixed css (finaly)
+
+[33mcommit 5b665bf5a9bc84c5c63e722468be93306b8422af[m
+Author: fndpc <cherryyt681@gmail.com>
+Date:   Thu Apr 17 21:17:59 2025 +0300
+
+    changing url movies to slug
+
+[33mcommit 42ceb8c021e4a34cea027c0b7749c1bcdc0b32fe[m
+Author: fndpc <cherryyt681@gmail.com>
+Date:   Wed Apr 16 18:29:42 2025 +0300
+
+    moving data from sqlite3 to postgresql
+
+[33mcommit 92a3670bbd3065e3733cc4833a7e0eaa07fb6acc[m
+Author: unknown <cherryyt681@gmail.com>
+Date:   Tue Apr 15 19:57:54 2025 +0300
+
+    fix navbar text
+
+[33mcommit cb8946317fdf4c41c4936863fb1c4ca1404c18db[m
+Author: unknown <cherryyt681@gmail.com>
+Date:   Fri Apr 11 09:33:41 2025 +0300
+
+    sbds
+
+[33mcommit 6710d7efe5523b34ff80b4aa0c367980ab981876[m
+Author: fndpc <cherryyt681@gmail.com>
+Date:   Thu Apr 10 09:23:05 2025 +0300
+
+    windows suck
+
+[33mcommit 7d595a3ced6a87d5df62afe8077e3dec327947ee[m
+Author: fndpc <cherryyt681@gmail.com>
+Date:   Mon Apr 7 19:09:21 2025 +0300
+
+    bb linux
+
+[33mcommit 330b37a9208e5ea9b314da1b783cbf6ad3e90e8d[m
+Author: fndpc <cherryyt681@gmail.com>
+Date:   Sun Apr 6 17:35:12 2025 +0300
+
+    system of a create order is ready
+
+[33mcommit 54bd58b5dcf7632425fdaa07727aa2d8463b355c[m
+Author: fndpc <cherryyt681@gmail.com>
+Date:   Sat Apr 5 20:58:27 2025 +0300
+
+    login-register-logout ready finaly
+
+[33mcommit d4be8b4f04cacc20faaec95fc3bdc68e1def155f[m
+Author: fndpc <cherryyt681@gmail.com>
+Date:   Sat Apr 5 20:15:15 2025 +0300
+
+    views for login, logout and register have relized
+
+[33mcommit 5f1fe16efd4518eb050d8c2e21f7424ddac84d0b[m
+Author: fndpc <cherryyt681@gmail.com>
+Date:   Sat Apr 5 11:51:46 2025 +0300
+
+    2
+
+[33mcommit 3530e7b9c2623e3f0faa0d3dac8baa62d7abb30e[m
+Author: fndpc <cherryyt681@gmail.com>
+Date:   Thu Apr 3 16:17:45 2025 +0300
+
+    first commit
