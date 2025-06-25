@@ -9,7 +9,17 @@
    ```cd cinema-network-cite```
 3. Установить зависимости
    ```pip install -r requirements.txt```
-4. Запустить сервер
+4. Установить переменные окружения (создать .env)
+```
+SECRET_KEY='рандомный ключ'
+DEBUG=True
+ALLOWED_HOSTS=127.0.0.1 localhost
+YMAPS_API_KEY='нужно получить на сайте https://developer.tech.yandex.ru/services'
+
+TIME_ZONE='Europe/Moscow'
+LANGUAGE_CODE='ru'
+```
+5. Запустить сервер
    ```python manage.py runserver```
 
 Для авторизации можно использовать профиль администрации
