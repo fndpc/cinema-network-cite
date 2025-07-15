@@ -1,13 +1,15 @@
 import os
 from pathlib import Path
-from dotenv import load_dotenv # type: ignore
+from dotenv import load_dotenv
 from django.urls import reverse_lazy
 
 
 load_dotenv()
 
-
+# Ключи
 SECRET_KEY = os.getenv('SECRET_KEY')
+YMAPS_API_KEY = os.getenv('YMAPS_API_KEY')
+
 DEBUG = os.getenv('DEBUG') == 'True'
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -114,12 +116,6 @@ LANGUAGE_CODE = os.getenv('LANGUAGE_CODE')
 TIME_ZONE = os.getenv('TIME_ZONE')
 USE_I18N = True
 USE_TZ = True
-
-# ТГ бот
-
-BOT_TOKEN=os.getenv('BOT_TOKEN')
-CHAT_ID=os.getenv('CHAT_ID')
-
 
 AUTH_USER_MODEL = 'users.CustomUser'
 

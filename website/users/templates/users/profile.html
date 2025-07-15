@@ -36,6 +36,7 @@
     </div>
     
     <!-- Telegram notification banner -->
+    {% if not user.telegram_chat_id %}
     <div class="telegram-banner">
         <div class="telegram-icon">
             <i class="fab fa-telegram-plane"></i>
@@ -48,7 +49,7 @@
             <a href="https://t.me/cinemapark_notiflication_bot" class="telegram-button">Привязать аккаунт</a>
         </div>
     </div>
-    
+    {% endif %}
     <div class="orders-section">
         <h2 class="section-title">Ваши заказы</h2>
         

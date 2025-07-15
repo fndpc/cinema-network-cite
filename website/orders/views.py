@@ -12,10 +12,10 @@ def orders(request):
         qr = make_qr(user.token, showtime.__str__())
         order = Orders(showtime=showtime, user=user, qr=qr)
         order.save()
-        if user.telegram_chat_id is not None:
-            connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
-            channel = connection.channel()
-            channel.queue_declare(queue='hello')
+        # if user.telegram_chat_id is not None:
+        #     connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
+        #     channel = connection.channel()
+        #     channel.queue_declare(queue='hello')
         return render(request, 'orders/success.html')
     return render(request, 'orders/fail.html')
 
