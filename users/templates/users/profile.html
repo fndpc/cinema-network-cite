@@ -8,6 +8,10 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 {% endblock %}
 
+{% block head %}
+<script src="{% static 'users/js/profile.js' %}"></script>
+{% endblock %}
+
 {% block main %}
 <div class="profile-container">
     <div class="profile-header">
@@ -28,6 +32,20 @@
                     <p class="stat-label">Последний вход</p>
                 </div>
             </div>
+        </div>
+    </div>
+    
+    <!-- Telegram notification banner -->
+    <div class="telegram-banner">
+        <div class="telegram-icon">
+            <i class="fab fa-telegram-plane"></i>
+        </div>
+        <div class="telegram-content">
+            <h3 class="telegram-title">Хочешь получать билеты прямо в Telegram?</h3>
+            <p class="telegram-text">Привяжи свой аккаунт и получай билеты мгновенно в популярной соцсети</p>
+        </div>
+        <div class="telegram-action">
+            <a href="https://t.me/cinemapark_notiflication_bot" class="telegram-button">Привязать аккаунт</a>
         </div>
     </div>
     
@@ -53,6 +71,14 @@
                                 <span class="detail-value">{{ order.showtime.hall.name }}</span>
                             </div>
                         </div>
+                        {% if order.qr %}
+                        <div class="order-actions">
+                            <button class="qr-button" data-order-id="{{ order.id }}" data-qr-url="{{ order.qr.url }}">
+                                <i class="fas fa-qrcode"></i>
+                                Показать QR-код
+                            </button>
+                        </div>
+                        {% endif %}
                     </li>
                 {% endfor %}
             </ul>
@@ -67,4 +93,21 @@
         {% endif %}
     </div>
 </div>
+
+<!-- QR Code Modal -->
+<div id="qr-modal" class="qr-modal">
+    <div class="qr-modal-content">
+        <div class="qr-modal-header">
+            <h3 class="qr-modal-title">QR-код билета</h3>
+            <button class="qr-modal-close">&times;</button>
+        </div>
+        <div class="qr-modal-body">
+            <div class="qr-code-container">
+                <img id="qr-code-image" src="/placeholder.svg" alt="QR код билета" class="qr-code-image">
+            </div>
+            <p class="qr-code-description">Покажите этот QR-код на входе в кинотеатр</p>
+        </div>
+    </div>
+</div>
+
 {% endblock %}

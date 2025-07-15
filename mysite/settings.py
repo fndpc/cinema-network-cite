@@ -116,8 +116,12 @@ USE_I18N = True
 USE_TZ = True
 
 # ТГ бот
+
 BOT_TOKEN=os.getenv('BOT_TOKEN')
 CHAT_ID=os.getenv('CHAT_ID')
+
+
+AUTH_USER_MODEL = 'users.CustomUser'
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

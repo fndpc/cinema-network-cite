@@ -7,7 +7,7 @@ from django.urls import reverse
 class Movies(models.Model):
     title = models.CharField(max_length=255)
     genre = models.CharField(max_length=255)
-    release_date = models.DateField()
+    year_published = models.IntegerField(blank=True)
     rating = models.DecimalField(decimal_places=1, max_digits=3, validators=[MaxValueValidator(10.0)])
     description = models.TextField()
     duration = models.CharField(max_length=8)

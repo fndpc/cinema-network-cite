@@ -6,6 +6,8 @@ from django.contrib.auth.views import LoginView
 from django.views.generic import CreateView
 from django.core.exceptions import PermissionDenied
 from orders.models import Orders
+import uuid
+
 
 
 # Create your views here.
@@ -14,6 +16,7 @@ def user_logout(request):
     return redirect('/')
 
 def profile(request, id):
+    print(id)
     if request.user.id == id:
         return render(request, 'users/profile.html', {'username': request.user.username,
                                                       'orders': Orders.objects.filter(user=request.user)})
