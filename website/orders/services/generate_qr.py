@@ -2,7 +2,7 @@ import qrcode
 from io import BytesIO
 from django.core.files import File
 
-def make_qr(user_token, showtime_data):
+def make_qr(user_token: str, showtime_data: str) -> File:
     data = str(user_token) + str(showtime_data.replace(' ', '_'))
     qr = qrcode.QRCode(
     version=1,
